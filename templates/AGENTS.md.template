@@ -2,11 +2,11 @@
 
 ## Project Purpose
 
-Describe what this repository exists to achieve and who it serves.
+Describe what this repository exists to achieve, who it serves, and what outcomes matter most.
 
 ## Read First
 
-List the small set of files an agent should read before substantive work.
+List the smallest set of files an agent should read before substantive work.
 
 ## Commands
 
@@ -19,27 +19,34 @@ lint: <command or n/a>
 validate: <command or n/a>
 ```
 
-## Repository Boundaries
+## Repository Boundaries and Invariants
 
-State important directory responsibilities, generated-artifact boundaries, and files that should not be modified casually.
+State important directory responsibilities, architecture boundaries, generated-artifact boundaries, compatibility promises, and files that should not be modified casually.
 
-## Engineering Defaults
+Prefer concrete statements such as:
 
-Adapt the relevant methodology defaults to this project. Keep only rules that materially affect decisions.
+- `<directory>` owns `<responsibility>`;
+- `<interface>` must remain backward compatible;
+- generated files under `<path>` must not be edited manually;
+- private data must never enter `<public path>`.
 
-- Open by Default
-- Agent-Native, Human-Accountable
-- Portable over Model-Agnostic
-- User Sovereignty & Privacy by Default
-- Local-First When Practical
-- Justified Dependencies
-- Progressive Usability
-- Verifiable by Default
-- Reversible Change
+## Material Engineering Defaults
+
+Include only methodology defaults that materially affect this project. Do **not** copy all principles automatically.
+
+Examples:
+
+- **Privacy:** user data stays local unless explicitly configured otherwise.
+- **Dependencies:** new runtime dependencies require a clear maintenance benefit.
+- **Verification:** every behavior change must have a reproducible validation path.
+- **Reversibility:** destructive migrations require backup or rollback instructions.
+- **Portability:** provider-specific code stays behind the existing adapter boundary.
+
+If a methodology principle has no meaningful consequence for this repository, omit it here.
 
 ## Project-Specific Constraints
 
-Document constraints that are specific to this repository, such as supported platforms, compatibility promises, data boundaries, performance requirements, or release rules.
+Document constraints specific to this repository, such as supported platforms, data boundaries, performance requirements, external services, regulatory constraints, or release rules.
 
 ## High-Risk Operations
 
@@ -54,6 +61,12 @@ Before declaring work complete, an agent should normally:
 3. check documentation impact;
 4. verify that no private data or secrets were introduced;
 5. summarize important trade-offs or deliberate deviations.
+
+## Scoped Instructions
+
+For a small repository, one root `AGENTS.md` is usually enough.
+
+Add nested or subsystem-specific instructions only when that scope has materially different commands, invariants, or risks. Keep local rules close to the scope they govern without duplicating repository-wide guidance.
 
 ## Exception Rule
 

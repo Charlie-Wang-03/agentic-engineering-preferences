@@ -1,0 +1,64 @@
+# AGENTS.md
+
+## Project Purpose
+
+Describe what this repository exists to achieve and who it serves.
+
+## Read First
+
+List the small set of files an agent should read before substantive work.
+
+## Commands
+
+Document deterministic commands when available.
+
+```text
+setup: <command or n/a>
+test: <command or n/a>
+lint: <command or n/a>
+validate: <command or n/a>
+```
+
+## Repository Boundaries
+
+State important directory responsibilities, generated-artifact boundaries, and files that should not be modified casually.
+
+## Engineering Defaults
+
+Adapt the relevant methodology defaults to this project. Keep only rules that materially affect decisions.
+
+- Open by Default
+- Agent-Native, Human-Accountable
+- Portable over Model-Agnostic
+- User Sovereignty & Privacy by Default
+- Local-First When Practical
+- Justified Dependencies
+- Progressive Usability
+- Verifiable by Default
+- Reversible Change
+
+## Project-Specific Constraints
+
+Document constraints that are specific to this repository, such as supported platforms, compatibility promises, data boundaries, performance requirements, or release rules.
+
+## High-Risk Operations
+
+List operations that require extra review, explicit approval, backup, dry-run, or rollback planning.
+
+## Definition of Done
+
+Before declaring work complete, an agent should normally:
+
+1. inspect the resulting diff;
+2. run relevant validation;
+3. check documentation impact;
+4. verify that no private data or secrets were introduced;
+5. summarize important trade-offs or deliberate deviations.
+
+## Exception Rule
+
+When a methodology default conflicts with a better project outcome, use:
+
+`Default → Conflict → Trade-off → Exception → Evidence → Revisit`
+
+Deviation is allowed; unexplained deviation is not.

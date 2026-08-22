@@ -1,0 +1,101 @@
+# 核心原则
+
+[English](principles.md)
+
+本文定义 Agentic Open-Source Engineering Methodology 中相对稳定的价值层。这些原则是强默认偏好，而不是绝对禁令。
+
+## 最高元原则：Outcomes over Dogma
+
+项目结果优先。原则用于改善工程判断，而不是替代工程判断。
+
+当不同原则彼此冲突，或原则与用户价值、项目质量、安全、性能、维护性等现实目标冲突时，可以做出明确的 trade-off，而不应机械遵循某条原则。
+
+> **Deviation is allowed; unexplained deviation is not.**
+>
+> 允许偏离默认原则，但不允许无法解释的偏离。
+
+## 1. Open by Default
+
+开放优先。
+
+优先选择符合开源生态习惯的方案，包括清晰许可证、开放格式与接口、可理解的仓库结构、互操作性以及对贡献者友好的协作方式。
+
+Open by Default 不意味着所有内容都必须公开。私有孵化、尚未公开的研究、安全敏感信息、凭证和用户数据都可能需要受控访问。
+
+## 2. Agent-Native, Human-Accountable
+
+Agent 原生，人类负责。
+
+仓库应尽可能让 AI Agent 在较少隐式上下文的情况下理解、修改、测试、验证、维护并更新文档。
+
+优先采用明确的结构、命令、约束、验收标准和机器可读指令。Agent 原生不等于“由 AI 生成”，也不意味着责任转移给 Agent。项目决策与公开结果最终仍由人承担责任。
+
+## 3. Portable over Model-Agnostic
+
+追求可移植，而不是绝对模型无关。
+
+避免不必要的模型锁定、Agent 产品锁定、云平台锁定和工具链锁定，优先设计清晰、可替换的边界。
+
+不得为了“支持一切”而把实现强行压缩到最低公共能力。只要收益明确，`portable core + provider/tool-specific optimization` 是合理设计。
+
+## 4. User Sovereignty & Privacy by Default
+
+用户主权与默认隐私保护。
+
+用户应尽可能对自己的数据、凭证、模型选择、Agent 选择、执行环境和项目产物保持实质控制。
+
+应减少不必要的数据传输、权限、telemetry、凭证暴露、私人路径泄漏，以及私有材料与公开产物的混杂。
+
+## 5. Local-First When Practical
+
+合理情况下本地优先。
+
+当本地执行能够实质改善隐私、自主性、可复现性、离线能力或系统韧性，同时不会造成不合理的能力、维护或易用性成本时，应优先本地执行。
+
+Local-first 不等于 local-only。当云服务明显是更优工程选择时可以采用，但相关依赖与重要数据流应保持透明。
+
+## 6. Justified Dependencies
+
+每个依赖都必须证明自己的价值。
+
+评估依赖时应考虑：它解决什么问题、自行实现成本、成熟度、维护活跃度、安全暴露、安装负担、替换成本以及长期维护影响。
+
+不得仅为了减少依赖数量而重复实现成熟基础设施。
+
+## 7. Progressive Usability
+
+渐进式用户友好。
+
+简单任务应保持简单，同时允许高级用户在需要时逐步接触更复杂的能力。
+
+优先提供清晰的 quick start、合理默认值、较低初始认知负担、progressive disclosure，以及对新手友好的文档。这里尤其包括通过 AI Agent 进入软件开发、但缺乏传统软件工程背景的开发者。
+
+## 8. Verifiable by Default
+
+默认可验证。
+
+优先让工作结果能够被工具验证，而不是仅凭表面观感判断正确性。
+
+在确有价值时，应使用 tests、lint、type checks、确定性命令、验证脚本、CI、验收标准和可复现实例。
+
+> **Agent-generated work should be verifiable by tools, not trusted by appearance.**
+>
+> Agent 生成的工作应当可以由工具验证，而不是因为“看起来正确”就被信任。
+
+## 9. Reversible Change
+
+修改应尽可能可逆。
+
+优先控制 blast radius，并为失败保留清晰恢复路径。
+
+根据需要使用版本控制、小而聚焦的 commit、可审查 diff、checkpoint、backup、dry-run、可逆 migration、破坏性操作保护以及生成产物隔离。
+
+## 原则如何演化
+
+不得因为某个概念听起来正确、流行或能让清单更完整，就新增核心原则。
+
+一条新原则应当解决反复出现、且现有原则或决策框架无法充分处理的真实工程决策。
+
+方法论应沿以下闭环持续演化：
+
+`Principles → Projects → Decisions → Failures / Successes → Lessons → Revised Principles`

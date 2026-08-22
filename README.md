@@ -14,7 +14,7 @@
 
 If your AI agent can access this repository and the target project, start with:
 
-> **Review `<TARGET_PROJECT>` using Agentic Engineering Review at `https://github.com/Charlie-Wang-03/Agentic-Open-Source-Engineering-Methodology`. First read and follow `AGENT_REVIEW_PROTOCOL.md`. Inspect actual project evidence, determine which review dimensions materially apply, give me the structured Diagnostic Score and evidence-backed findings, and do not modify the target unless I explicitly ask.**
+> **Review `<TARGET_PROJECT>` using Agentic Engineering Review at `https://github.com/Charlie-Wang-03/agentic-engineering-review`. First read and follow `AGENT_REVIEW_PROTOCOL.md`. Inspect actual project evidence, determine which review dimensions materially apply, give me the structured Diagnostic Score and evidence-backed findings, and do not modify the target unless I explicitly ask.**
 
 `<TARGET_PROJECT>` can be:
 

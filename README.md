@@ -8,7 +8,7 @@
 
 [简体中文](README.zh-CN.md)
 
-> **Status: v0.4 — private incubation.** The review protocol and underlying methodology are being validated through real project work. This is an opinionated engineering system, not an industry standard or certification framework.
+> **Status: v0.4 — public preview.** The review protocol and underlying methodology are open for real-world use, feedback, and validation. This is an opinionated engineering system, not an industry standard or certification framework.
 
 ## Review a Project with One Prompt
 
@@ -194,11 +194,11 @@ python3 scripts/validate_repo.py
 
 English is the default operational language. Simplified Chinese is maintained as a first-class reading path for the README and core methodology documents. The canonical Agent Review Protocol remains English-first; review output should normally follow the user's language.
 
-The repository remains private during incubation. Public release should happen only after dedicated methodology, documentation, privacy, Git-history, governance, and cross-agent protocol validation.
+The repository is in **public preview**. Real-project feedback and cross-agent behavioral validation will guide future versions before any `v1.0` stability claim.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Contributions should improve real engineering decisions, review reliability, or adoption rather than add process for its own sake.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Contributions should improve real engineering decisions, review reliability, or adoption rather than add process for its own sake. For security-sensitive reports, follow [SECURITY.md](SECURITY.md) instead of opening a public issue.
 
 ## License
 

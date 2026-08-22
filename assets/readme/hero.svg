@@ -1,54 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
   <title id="title">Agentic Engineering Review</title>
   <desc id="desc">A technical system map showing a target project flowing through an AI agent and an evidence-first review protocol into a structured engineering review.</desc>
 
-  <rect width="1200" height="400" rx="28" fill="#0A0E13"/>
-  <rect x="1" y="1" width="1198" height="398" rx="27" fill="none" stroke="#26313D" stroke-width="2"/>
+  <rect width="1200" height="420" rx="28" fill="#0A0E13"/>
+  <rect x="1" y="1" width="1198" height="418" rx="27" fill="none" stroke="#26313D" stroke-width="2"/>
 
-  <g id="title-block" transform="translate(64 54)">
+  <g id="title-block" transform="translate(64 52)">
     <text x="0" y="0" fill="#2DD4BF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700" letter-spacing="2">OPEN ENGINEERING REVIEW PROTOCOL · v0.4</text>
-    <text x="0" y="78" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="62" font-weight="760">Agentic Engineering</text>
-    <text x="0" y="146" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="62" font-weight="760">Review</text>
-    <text x="0" y="205" fill="#B7C0CA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="23">Give your AI agent an evidence-first way to review</text>
-    <text x="0" y="237" fill="#B7C0CA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="23">a software project — without turning judgment into compliance.</text>
+    <text x="0" y="76" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="58" font-weight="760">Agentic Engineering</text>
+    <text x="0" y="140" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="58" font-weight="760">Review</text>
+    <text x="0" y="204" fill="#B7C0CA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="22">Give your AI agent an evidence-first way to review</text>
+    <text x="0" y="235" fill="#B7C0CA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="22">a software project — without turning judgment into compliance.</text>
 
-    <g transform="translate(0 278)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" font-weight="650">
-      <rect x="0" y="0" width="188" height="38" rx="9" fill="#111820" stroke="#26313D"/>
+    <g transform="translate(0 296)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="650">
+      <rect x="0" y="0" width="184" height="38" rx="9" fill="#111820" stroke="#26313D"/>
       <text x="16" y="25" fill="#DDE3EA">EVIDENCE-FIRST</text>
-      <rect x="202" y="0" width="236" height="38" rx="9" fill="#111820" stroke="#26313D"/>
-      <text x="218" y="25" fill="#DDE3EA">APPLICABILITY-AWARE</text>
-      <rect x="452" y="0" width="216" height="38" rx="9" fill="#111820" stroke="#26313D"/>
-      <text x="468" y="25" fill="#DDE3EA">READ-ONLY DEFAULT</text>
+      <rect x="198" y="0" width="228" height="38" rx="9" fill="#111820" stroke="#26313D"/>
+      <text x="214" y="25" fill="#DDE3EA">APPLICABILITY-AWARE</text>
+      <rect x="440" y="0" width="204" height="38" rx="9" fill="#111820" stroke="#26313D"/>
+      <text x="456" y="25" fill="#DDE3EA">READ-ONLY DEFAULT</text>
     </g>
   </g>
 
-  <line x1="695" y1="48" x2="695" y2="352" stroke="#26313D" stroke-width="2"/>
+  <line x1="710" y1="46" x2="710" y2="374" stroke="#26313D" stroke-width="2"/>
 
-  <g id="review-flow" transform="translate(744 28)">
-    <rect x="0" y="0" width="390" height="54" rx="12" fill="#111820" stroke="#344150" stroke-width="1.5"/>
-    <text x="22" y="22" fill="#8F9AA6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">01 · TARGET</text>
-    <text x="22" y="43" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="650">Your project or workspace</text>
+  <g id="review-flow" transform="translate(758 34)">
+    <rect x="0" y="0" width="376" height="58" rx="12" fill="#111820" stroke="#344150" stroke-width="1.5"/>
+    <text x="22" y="23" fill="#8F9AA6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">01 · TARGET</text>
+    <text x="22" y="46" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="650">Your project or workspace</text>
 
-    <path d="M195 96 L195 118" stroke="#4B5968" stroke-width="2"/>
-    <path d="M188 112 L195 120 L202 112" fill="none" stroke="#4B5968" stroke-width="2"/>
+    <path d="M188 66 L188 84" stroke="#4B5968" stroke-width="2"/>
+    <path d="M181 78 L188 86 L195 78" fill="none" stroke="#4B5968" stroke-width="2"/>
 
-    <rect x="0" y="122" width="390" height="54" rx="12" fill="#111820" stroke="#344150" stroke-width="1.5"/>
-    <text x="22" y="144" fill="#8F9AA6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">02 · EXECUTOR</text>
-    <text x="22" y="165" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="650">Your AI agent</text>
+    <rect x="0" y="94" width="376" height="58" rx="12" fill="#111820" stroke="#344150" stroke-width="1.5"/>
+    <text x="22" y="117" fill="#8F9AA6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">02 · EXECUTOR</text>
+    <text x="22" y="140" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="650">Your AI agent</text>
 
-    <path d="M195 176 L195 198" stroke="#2DD4BF" stroke-width="2.5"/>
-    <path d="M188 192 L195 200 L202 192" fill="none" stroke="#2DD4BF" stroke-width="2.5"/>
+    <path d="M188 160 L188 178" stroke="#2DD4BF" stroke-width="2.5"/>
+    <path d="M181 172 L188 180 L195 172" fill="none" stroke="#2DD4BF" stroke-width="2.5"/>
 
-    <rect x="0" y="202" width="390" height="82" rx="12" fill="#0E1A1B" stroke="#2DD4BF" stroke-width="2"/>
-    <text x="22" y="226" fill="#2DD4BF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">03 · REVIEW PROTOCOL</text>
-    <text x="22" y="251" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="650">Evidence → applicability → trade-offs</text>
-    <text x="22" y="274" fill="#AEB9C4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">methodology-backed judgment</text>
+    <rect x="0" y="188" width="376" height="88" rx="12" fill="#0E1A1B" stroke="#2DD4BF" stroke-width="2"/>
+    <text x="22" y="213" fill="#2DD4BF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">03 · REVIEW PROTOCOL</text>
+    <text x="22" y="240" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="19" font-weight="650">Evidence → applicability → trade-offs</text>
+    <text x="22" y="264" fill="#AEB9C4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">methodology-backed judgment</text>
 
-    <path d="M195 284 L195 306" stroke="#4B5968" stroke-width="2"/>
-    <path d="M188 300 L195 308 L202 300" fill="none" stroke="#4B5968" stroke-width="2"/>
+    <path d="M188 284 L188 302" stroke="#4B5968" stroke-width="2"/>
+    <path d="M181 296 L188 304 L195 296" fill="none" stroke="#4B5968" stroke-width="2"/>
 
-    <rect x="0" y="310" width="390" height="54" rx="12" fill="#111820" stroke="#344150" stroke-width="1.5"/>
-    <text x="22" y="332" fill="#8F9AA6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">04 · RESULT</text>
-    <text x="22" y="353" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="650">Score · gaps · trade-offs · next actions</text>
+    <rect x="0" y="312" width="376" height="64" rx="12" fill="#111820" stroke="#344150" stroke-width="1.5"/>
+    <text x="22" y="336" fill="#8F9AA6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">04 · RESULT</text>
+    <text x="22" y="360" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="19" font-weight="650">Score · gaps · trade-offs · next actions</text>
   </g>
 </svg>

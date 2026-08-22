@@ -4,6 +4,8 @@
 
 This repository develops the **Agentic Open-Source Engineering Methodology**. AI agents should treat the repository as both documentation and a lightweight reference implementation of the methodology it describes.
 
+This file governs agents **modifying this methodology repository**. It is not the execution protocol for reviewing another project. External project reviews must follow [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md).
+
 ## Read First
 
 Before making substantive changes, read the smallest relevant set of files:
@@ -12,8 +14,9 @@ Before making substantive changes, read the smallest relevant set of files:
 2. `docs/principles.md`;
 3. `docs/decision-framework.md`;
 4. `docs/practices.md` when changing implementation guidance;
-5. `docs/governance.md` when changing the methodology itself, document policy, or repository structure;
-6. `CONTRIBUTING.md` for contribution expectations.
+5. `docs/governance.md` when changing the methodology itself, document policy, scoring policy, review protocol, or repository structure;
+6. `AGENT_REVIEW_PROTOCOL.md` when changing external-review behavior;
+7. `CONTRIBUTING.md` for contribution expectations.
 
 Do not load or rewrite unrelated documents merely for completeness.
 
@@ -31,13 +34,16 @@ Deviation is allowed; unexplained deviation is not.
 
 ## Repository Invariants
 
-- Keep Principles, Decision Framework, Practices, and Governance conceptually distinct.
+- Keep Principles, Decision Framework, Practices, Governance, and the external Agent Review Protocol conceptually distinct.
+- Do not conflate `AGENTS.md` with `AGENT_REVIEW_PROTOCOL.md`: repository maintenance and target-project review are different execution contexts.
 - Do not add a core principle merely for completeness, trend coverage, or terminology symmetry.
 - Distinguish values, defaults, constraints, decision rules, and preferred means when changing the principle layer.
 - Do not present project-specific opinions as established industry consensus.
 - Keep tool-, provider-, and model-specific guidance out of stable principles unless discussing a durable engineering concern.
 - Preserve semantic alignment for the bilingual documents the repository explicitly promises to maintain.
 - Do not duplicate every operational file in both languages merely for symmetry.
+- Preserve review-protocol invariants unless evidence supports changing them: evidence before judgment, applicability before scoring, `N/A` without penalty, explicit insufficient-evidence handling, and read-only review by default.
+- Diagnostic scores are summaries, not certification or cross-project rankings.
 - Prefer focused, reviewable, reversible changes.
 - Do not add `cases/` or `blog/` without an explicit repository-level decision.
 - Do not add dependencies, frameworks, generated artifacts, or automation without demonstrated value.
@@ -48,13 +54,15 @@ Deviation is allowed; unexplained deviation is not.
 
 Use the existing document boundaries instead of duplicating normative text:
 
-- `README*` — positioning, audience, scope, adoption path;
+- `README*` — positioning, audience, scope, one-prompt entry, adoption path;
+- `AGENT_REVIEW_PROTOCOL.md` — canonical external target-project review procedure, scoring formula, and output contract;
 - `docs/principles*` — durable decision principles;
 - `docs/decision-framework*` — trade-offs and exceptions;
 - `docs/practices*` — implementation guidance;
-- `docs/governance*` — methodology evolution;
-- `AGENTS.md` — operational constraints for agents;
-- `templates/` — reusable derived artifacts.
+- `docs/governance*` — methodology and review-protocol evolution;
+- `AGENTS.md` — operational constraints for agents modifying this repository;
+- `templates/PROJECT_REVIEW*` — human-readable review dimensions and diagnostic rubric;
+- other `templates/` — reusable derived artifacts.
 
 When a rule already has a canonical source, link to it or summarize it briefly rather than maintaining a second full copy.
 
@@ -69,23 +77,30 @@ Paired English / Simplified Chinese versions are expected for:
 - Governance;
 - user-facing templates where translation materially improves adoption.
 
-Operational files may remain English-first unless a translation provides real value.
+Operational files such as `AGENTS.md` and `AGENT_REVIEW_PROTOCOL.md` may remain English-first unless a translation provides real value. The README should still provide a usable Chinese entry prompt.
+
+## External Review Context
+
+When asked to use this methodology to review a separate target project, do not apply the maintenance instructions in this file as the target-project protocol. Follow [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md) instead.
+
+A target project may be local or remote, public or private, Git-based or not. Apply only materially relevant review dimensions and do not modify the target unless the user explicitly authorizes implementation.
 
 ## Agent Instructions as Scoped Context
 
-For projects adopting this methodology, prefer a concise root `AGENTS.md`. Add nested or scoped agent instructions only when a subsystem has materially different commands, invariants, or risks. Do not create instruction files for every directory by default.
+For projects selectively adopting this methodology, prefer a concise root `AGENTS.md`. Add nested or scoped agent instructions only when a subsystem has materially different commands, invariants, or risks. Do not create instruction files for every directory by default.
 
 ## Validation Before Completion
 
 Before declaring work complete:
 
 1. inspect the resulting diff;
-2. confirm the change belongs to the correct methodology or governance layer;
+2. confirm the change belongs to the correct methodology, governance, or review-protocol layer;
 3. check whether any promised bilingual pair is affected;
 4. check links and derived artifacts when normative text changes;
-5. run `python3 scripts/validate_repo.py`;
-6. confirm no private or machine-specific information was introduced;
-7. summarize any deliberate deviation from defaults.
+5. if review behavior changed, check `README*`, `AGENT_REVIEW_PROTOCOL.md`, `templates/PROJECT_REVIEW*`, and scoring references for consistency;
+6. run `python3 scripts/validate_repo.py`;
+7. confirm no private or machine-specific information was introduced;
+8. summarize any deliberate deviation from defaults.
 
 ## Change Philosophy
 

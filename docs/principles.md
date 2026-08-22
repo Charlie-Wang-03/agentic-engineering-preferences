@@ -2,7 +2,7 @@
 
 [简体中文](principles.zh-CN.md)
 
-This document defines the durable decision principles of the Agentic Open-Source Engineering Methodology. They are strong defaults, not absolute laws.
+This document defines the durable decision principles of the **Agentic Engineering Methodology**, which powers Agentic Engineering Review. They are strong defaults, not absolute laws.
 
 The principles are intentionally not all the same kind of concept. Some express values, some define engineering defaults or preferences, some act as constraints, and some describe preferred means. They belong at the principle layer only when they repeatedly change engineering decisions across projects and remain meaningful as specific tools change.
 

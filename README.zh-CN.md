@@ -14,7 +14,7 @@
 
 只要 AI Agent 能够访问本仓库与目标项目，就可以直接发送：
 
-> **请使用 `https://github.com/Charlie-Wang-03/Agentic-Open-Source-Engineering-Methodology` 中的 Agentic Engineering Review 审查 `<TARGET_PROJECT>`。先读取并遵循 `AGENT_REVIEW_PROTOCOL.md`；检查实际项目证据，判断哪些审查维度真正适用，给出结构化 Diagnostic Score 与有证据支持的发现；除非我明确要求，否则不要修改目标项目。**
+> **请使用 `https://github.com/Charlie-Wang-03/agentic-engineering-review` 中的 Agentic Engineering Review 审查 `<TARGET_PROJECT>`。先读取并遵循 `AGENT_REVIEW_PROTOCOL.md`；检查实际项目证据，判断哪些审查维度真正适用，给出结构化 Diagnostic Score 与有证据支持的发现；除非我明确要求，否则不要修改目标项目。**
 
 `<TARGET_PROJECT>` 可以是：
 

@@ -207,7 +207,7 @@ def validate_hero_svg() -> int:
     text = path.read_text(encoding="utf-8")
     failures = 0
     required = [
-        'viewBox="0 0 1200 400"',
+        'viewBox="0 0 1200 420"',
         "<title",
         "<desc",
         "Agentic Engineering Review",

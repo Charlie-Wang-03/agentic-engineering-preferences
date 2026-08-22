@@ -217,7 +217,14 @@ def validate_hero_svg() -> int:
             error(f"hero.svg is missing required SVG invariant: {item}")
             failures += 1
 
-    forbidden = ["<script", "foreignObject", "http://", "https://"]
+    forbidden = [
+        "<script",
+        "foreignObject",
+        'href="http://',
+        'href="https://',
+        "href='http://",
+        "href='https://",
+    ]
     for item in forbidden:
         if item in text:
             error(f"hero.svg contains fragile or remote SVG content: {item}")

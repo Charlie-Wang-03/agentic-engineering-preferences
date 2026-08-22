@@ -2,23 +2,23 @@
 
 [English](governance.md)
 
-本文只负责管理方法论本身如何变化，并有意保持轻量。治理的目标是保护方法论的一致性，而不是把一个小型方法论仓库变成流程繁重的标准组织。
+本文负责管理 **Agentic Engineering Review** 中底层 **Agentic Engineering Methodology** 与 Agent Review Protocol 如何演化，并有意保持轻量。治理的目标是保护一致性，而不是把一个 Markdown-first 小型项目变成流程繁重的标准组织。
 
 ## 1. 规范性结构
 
 仓库中的主要文档职责如下：
 
-- `docs/principles.md` — 相对稳定的工程决策原则；
+- `README.md` — 产品身份、项目发现、目标用户、一句话入口、边界与采用路径；
+- `AGENT_REVIEW_PROTOCOL.md` — Agent 审查外部 Target Project 时的 canonical 执行协议；
+- `docs/principles.md` — Agentic Engineering Methodology 中相对稳定的工程决策原则；
 - `docs/decision-framework.md` — 冲突、trade-off、例外与证据处理；
 - `docs/practices.md` — 可以更快演化的实现实践；
-- `docs/governance.md` — 上述内容如何演化；
-- `AGENT_REVIEW_PROTOCOL.md` — Agent 审查外部 Target Project 时的 canonical 执行协议；
-- `AGENTS.md` — Agent 在本方法论仓库工作时的执行约束；
+- `docs/governance.md` — 方法论、Protocol 及其派生产物如何演化；
+- `AGENTS.md` — Agent 在本仓库工作时的执行约束；
 - `templates/PROJECT_REVIEW.md` — 审查维度与面向人类的诊断 rubric；
-- 其他 `templates/` — 从方法论派生出的可复用产物；
-- `README.md` — 项目定位、目标用户、边界与采用路径。
+- 其他 `templates/` — 从方法论派生出的可复用产物。
 
-不得混淆 `AGENTS.md` 与 `AGENT_REVIEW_PROTOCOL.md`：前者约束如何修改本仓库，后者约束如何把本仓库应用于另一个目标项目。
+不得混淆 `AGENTS.md` 与 `AGENT_REVIEW_PROTOCOL.md`：前者约束如何修改本仓库，后者约束如何使用 Agentic Engineering Review 审查另一个目标项目。
 
 同一规则如果出现在多个位置，应尽量保留一个 canonical normative source，其余文件使用链接或简短摘要。
 
@@ -58,31 +58,38 @@
 
 头部外部仓库和 Agent 工具是证据来源，而不是机械模仿的权威模板。
 
+### 产品身份与 onboarding 修改
+
+当现有品牌、README 信息层级、视觉资产或首次使用路径已经无法准确表达系统真实能力或目标用户时，可以调整产品呈现。
+
+产品化不得虚构 adoption、兼容性、benchmark、testimonial 或 Review 结果。视觉和文案修改应优先让真实机制更容易被理解，而不是为了装饰而增加视觉复杂度。
+
 ### 仓库实现修改
 
-自动化、脚本、模板与目录结构应与本仓库真实风险和维护需求相称。
+自动化、脚本、模板、视觉资产与目录结构应与本仓库真实风险和维护需求相称。
 
 ## 3. 修改传播
 
-如果方法论已经变化，但派生产物仍然传达旧规则，这次修改就没有完成。
+如果方法论、Protocol 或产品身份已经变化，但派生产物仍然传达旧规则或旧定位，这次修改就没有完成。
 
 根据实际影响检查：
 
-- README 摘要、一句话入口与导航；
+- README 摘要、一句话入口、产品身份与导航；
 - 配对的核心语言文档；
 - `AGENT_REVIEW_PROTOCOL.md`；
 - `AGENTS.md`；
 - `templates/PROJECT_REVIEW*` 与其他受影响模板；
 - validation rules；
-- PR guidance。
+- PR guidance；
+- 当产品叙事或机制发生变化时的 README 视觉资产。
 
-Principle 修改不自动意味着评分体系必须修改；同样，Protocol 的措辞调整也不应为了“同步”而触发无关方法论修改。
+Principle 修改不自动意味着评分体系必须修改；同样，Protocol 措辞或产品文案调整也不应为了“同步”而触发无关方法论修改。
 
 不得为了制造“大范围同步修改”而更新无关文件。
 
 ## 4. 语言与文档策略
 
-英文作为国际开源协作中的默认操作语言；简体中文是本仓库核心方法论的一等阅读路径。
+英文作为国际工程与开源协作中的默认操作语言；简体中文是产品入口和核心方法论的一等阅读路径。
 
 默认维护中英配对的内容包括：
 
@@ -101,9 +108,10 @@ Principle 修改不自动意味着评分体系必须修改；同样，Protocol �
 
 ## 5. 版本策略与审查可追溯性
 
-在私有孵化阶段，`v0.x` 主要表示方法论成熟度，而不是严格 Semantic Versioning 承诺。
+在私有孵化阶段，`v0.x` 表示整个 **Review 系统的连贯项目成熟度里程碑**，覆盖 Review Protocol、底层方法论、产品身份与采用体验，而不是严格 Semantic Versioning 承诺。
 
-- 一个孵化阶段的小版本应代表一次连贯的方法论里程碑；
+- 一个孵化阶段的小版本应代表一次连贯项目里程碑，而不是纯措辞修改；
+- 里程碑可以来自方法论、Protocol 行为、产品身份、adoption UX 或其他实质项目能力；
 - 普通措辞修正或维护更新不必改变版本号；
 - 只有准备正式发布的里程碑才需要 Git tag 或 GitHub Release；
 - 首次公开前应进行专门 release-readiness review，而不是自动沿用当前版本号。
@@ -127,16 +135,16 @@ Diagnostic Score 的目的，是让用户更容易理解有证据支持的审查
 
 ## 7. 证据与 Decision Record
 
-大多数方法论修改通过聚焦的 PR 说明即可。只有当选择影响广泛、难以回滚或未来很可能重新评估时，才值得保留独立 Decision Record。
+大多数修改通过聚焦的 PR 说明即可。只有当选择影响广泛、难以回滚或未来很可能重新评估时，才值得保留独立 Decision Record。
 
 不得为了证明“存在治理”而制造没有实际价值的文档。
 
 ## 8. 仓库自身也是考察对象
 
-本仓库本身也是方法论的测试对象。如果文档宣称与实际维护行为出现偏差，应把这种不一致当成证据，并判断：
+本仓库本身也是 Review 系统与底层方法论的测试对象。如果文档宣称、产品承诺与实际维护行为出现偏差，应把这种不一致当成证据，并判断：
 
-1. 仓库实现需要修改；或
-2. 方法论本身过宽、成本过高或表述不清，需要修正。
+1. 仓库实现或产品呈现需要修改；或
+2. 方法论、Protocol 或产品承诺本身过宽、成本过高或表述不清，需要修正。
 
 Agent Review Protocol 也是一个可测试的产物。首次公开前，应在多种 Target Project 形态上进行实际测试，并在合理情况下使用多个有能力的 Agent 环境。测试重点是行为不变量，而不是要求不同模型生成完全相同的文字。
 
@@ -146,9 +154,10 @@ Agent Review Protocol 也是一个可测试的产物。首次公开前，应在�
 
 从私有孵化转为公开发布之前，应专门审查：
 
+- 产品身份与首屏清晰度；
 - 方法论一致性与范围；
-- README 与 onboarding；
-- 一句话外部审查路径；
+- README 与一句话 onboarding；
+- README 视觉资产与可访问性；
 - Review Protocol 在代表性目标项目上的行为；
 - 隐私、secrets 与 Git history；
 - license 与 attribution；

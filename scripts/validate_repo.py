@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lightweight structural validation for the methodology repository.
+"""Lightweight structural validation for the Agentic Engineering Review repository.
 
 The validator intentionally uses only the Python standard library. It checks
 repository invariants that are cheap to verify automatically without turning a
@@ -23,6 +23,7 @@ REQUIRED_FILES = [
     "CODE_OF_CONDUCT.md",
     "AGENTS.md",
     "AGENT_REVIEW_PROTOCOL.md",
+    "assets/readme/hero.svg",
     "docs/principles.md",
     "docs/principles.zh-CN.md",
     "docs/decision-framework.md",
@@ -60,18 +61,26 @@ PRINCIPLE_HEADINGS = [
 
 REQUIRED_PHRASES = {
     "README.md": [
-        "Status: v0.3",
+        "Agentic Engineering Review",
+        "Status: v0.4",
+        "assets/readme/hero.svg",
         "AGENT_REVIEW_PROTOCOL.md",
         "Diagnostic Score",
         "Evidence Coverage",
         "N/A",
     ],
     "README.zh-CN.md": [
-        "当前状态：v0.3",
+        "Agentic Engineering Review",
+        "当前状态：v0.4",
+        "assets/readme/hero.svg",
         "AGENT_REVIEW_PROTOCOL.md",
         "Diagnostic Score",
         "Evidence Coverage",
         "N/A",
+    ],
+    "docs/principles.md": [
+        "Agentic Engineering Methodology",
+        "Outcomes over Dogma",
     ],
     "docs/decision-framework.md": [
         "Default → Conflict → Trade-off → Exception → Evidence → Revisit",
@@ -83,11 +92,15 @@ REQUIRED_PHRASES = {
         "AGENT_REVIEW_PROTOCOL.md",
     ],
     "AGENTS.md": [
+        "Agentic Engineering Review",
+        "Agentic Engineering Methodology",
         "Deviation is allowed; unexplained deviation is not.",
         "Repository Invariants",
         "AGENT_REVIEW_PROTOCOL.md",
     ],
     "AGENT_REVIEW_PROTOCOL.md": [
+        "Agentic Engineering Review",
+        "Agentic Engineering Methodology",
         "read-only review mode",
         "Evidence Before Judgment",
         "Determine Applicability Before Scoring",
@@ -98,6 +111,7 @@ REQUIRED_PHRASES = {
         "N/A",
     ],
     "templates/PROJECT_REVIEW.md": [
+        "Agentic Engineering Review",
         "Applicability First",
         "NE — Not Enough Evidence",
         "Diagnostic Scale",
@@ -106,6 +120,19 @@ REQUIRED_PHRASES = {
         "N/A",
     ],
 }
+
+LEGACY_IDENTITY = "Agentic Open-Source Engineering Methodology"
+LEGACY_IDENTITY_FILES = [
+    "README.md",
+    "README.zh-CN.md",
+    "AGENTS.md",
+    "AGENT_REVIEW_PROTOCOL.md",
+    "CONTRIBUTING.md",
+    "docs/principles.md",
+    "docs/principles.zh-CN.md",
+    "templates/PROJECT_REVIEW.md",
+    "templates/PROJECT_REVIEW.zh-CN.md",
+]
 
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
@@ -162,6 +189,50 @@ def validate_required_phrases() -> int:
     return failures
 
 
+def validate_legacy_identity() -> int:
+    failures = 0
+    for relative in LEGACY_IDENTITY_FILES:
+        path = ROOT / relative
+        if path.is_file() and LEGACY_IDENTITY in path.read_text(encoding="utf-8"):
+            error(f"legacy project identity remains in current identity-bearing file: {relative}")
+            failures += 1
+    return failures
+
+
+def validate_hero_svg() -> int:
+    path = ROOT / "assets/readme/hero.svg"
+    if not path.is_file():
+        return 0
+
+    text = path.read_text(encoding="utf-8")
+    failures = 0
+    required = [
+        'viewBox="0 0 1200 400"',
+        "<title",
+        "<desc",
+        "Agentic Engineering Review",
+    ]
+    for item in required:
+        if item not in text:
+            error(f"hero.svg is missing required SVG invariant: {item}")
+            failures += 1
+
+    forbidden = [
+        "<script",
+        "foreignObject",
+        'href="http://',
+        'href="https://',
+        "href='http://",
+        "href='https://",
+    ]
+    for item in forbidden:
+        if item in text:
+            error(f"hero.svg contains fragile or remote SVG content: {item}")
+            failures += 1
+
+    return failures
+
+
 def validate_local_markdown_links() -> int:
     failures = 0
     markdown_files = list(ROOT.glob("*.md"))
@@ -200,6 +271,8 @@ def main() -> int:
     failures += validate_bilingual_pairs()
     failures += validate_principles()
     failures += validate_required_phrases()
+    failures += validate_legacy_identity()
+    failures += validate_hero_svg()
     failures += validate_local_markdown_links()
 
     if failures:

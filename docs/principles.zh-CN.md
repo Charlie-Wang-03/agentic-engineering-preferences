@@ -2,7 +2,7 @@
 
 [English](principles.md)
 
-本文定义 Agentic Open-Source Engineering Methodology 中相对稳定、能够持续影响工程决策的原则。这些原则是强默认偏好，而不是绝对禁令。
+本文定义 **Agentic Engineering Methodology** 中相对稳定、能够持续影响工程决策的原则；该方法论为 Agentic Engineering Review 提供底层判断框架。这些原则是强默认偏好，而不是绝对禁令。
 
 这些原则并不都属于同一种概念类型：其中既有价值取向，也有工程默认偏好、约束、决策准则和优先采用的手段。只有当某个概念能够跨项目反复改变工程决策，并且不会随着具体工具快速过时时，才值得进入 Principle 层。
 

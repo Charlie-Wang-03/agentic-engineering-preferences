@@ -2,7 +2,7 @@
 
 [English](PROJECT_REVIEW.md)
 
-使用 Agentic Open-Source Engineering Methodology 快速暴露目标项目中重要的工程缺口。
+使用 **Agentic Engineering Review** 及其底层 **Agentic Engineering Methodology**，快速暴露目标项目中重要的工程缺口。
 
 目标项目可以公开或私有、位于本地或远程，也不要求必须使用 Git。本审查只应用真正与项目相关的方法论维度。它是一种诊断工具，不是认证、合规审计或通用成熟度排行榜。
 

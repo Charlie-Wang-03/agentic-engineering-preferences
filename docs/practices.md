@@ -2,7 +2,7 @@
 
 [简体中文](practices.zh-CN.md)
 
-Practices are the fast-moving implementation layer of the methodology. They translate durable principles and decision rules into project behavior.
+Practices are the fast-moving implementation layer of the **Agentic Engineering Methodology** and its review system. They translate durable principles and decision rules into project behavior.
 
 Unlike the core principles, practices may change as tools, agent capabilities, hosting platforms, and engineering conventions evolve.
 
@@ -27,15 +27,15 @@ For larger projects, scoped or nested agent instructions may be useful when a su
 
 Give each document a clear job instead of turning one file into a universal source of detail.
 
-For this methodology repository, a useful separation is:
+For this review-system repository, a useful separation is:
 
-- `README.md` — discovery, audience, scope, and adoption path;
+- `README.md` — product discovery, audience, scope, one-prompt entry, and adoption path;
 - `AGENT_REVIEW_PROTOCOL.md` — canonical execution protocol for reviewing an external target project;
 - `docs/principles*` — durable engineering principles;
 - `docs/decision-framework*` — conflict and exception handling;
 - `docs/practices*` — implementation guidance that may evolve faster;
-- `docs/governance*` — how the methodology itself changes;
-- `AGENTS.md` — agent operating constraints for this methodology repository;
+- `docs/governance*` — how the methodology, protocol, and product-facing artifacts evolve;
+- `AGENTS.md` — agent operating constraints for this repository;
 - `CONTRIBUTING.md` — contribution workflow and expectations;
 - `templates/` — reusable derived artifacts.
 
@@ -45,7 +45,7 @@ Avoid duplicating the same normative text across multiple files. Link to the can
 
 Use bilingual documentation where it materially improves access, not as a requirement for every repository file.
 
-For this methodology repository, maintain English and Simplified Chinese pairs for:
+For this repository, maintain English and Simplified Chinese pairs for:
 
 - the README;
 - core methodology documents intended for regular human reading;
@@ -130,9 +130,9 @@ A newcomer-facing project should make it easy to answer:
 
 Do not force advanced architecture or every methodology concept into the initial adoption path. Likewise, do not judge an intentionally expert-only internal project against a newcomer experience it never claims to provide.
 
-## 9. External Methodology Review
+## 9. External Engineering Review
 
-The default adoption model is an **external review lens**, not inheritance of methodology files into every project.
+The default adoption model for **Agentic Engineering Review** is an **external review lens**, not inheritance of methodology files into every project.
 
 At meaningful checkpoints, an AI agent may use this repository to review a target project without modifying it. The target may be local or remote, public or private, Git-based or not.
 

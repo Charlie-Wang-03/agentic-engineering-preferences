@@ -1,63 +1,125 @@
-# Agentic Open-Source Engineering Methodology
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="Agentic Engineering Review — an evidence-first review protocol for AI agents">
+</p>
 
-> A practical, evolving methodology for designing, developing, verifying, maintaining, and evolving open-source software with AI agents.
+# Agentic Engineering Review
+
+> Let your AI agent review a software project with evidence, applicability-aware scoring, explicit trade-offs, and prioritized next actions.
 
 [简体中文](README.zh-CN.md)
 
-> **Status: v0.3 — private incubation.** The methodology is being tested and refined through real project work. It is an opinionated engineering methodology, not an industry standard.
+> **Status: v0.4 — private incubation.** The review protocol and underlying methodology are being validated through real project work. This is an opinionated engineering system, not an industry standard or certification framework.
 
 ## Review a Project with One Prompt
 
-If your AI agent can access this repository and the target project, you can start with one prompt:
+If your AI agent can access this repository and the target project, start with:
 
-> **Review `<TARGET_PROJECT>` using the Agentic Open-Source Engineering Methodology at `https://github.com/Charlie-Wang-03/Agentic-Open-Source-Engineering-Methodology`. First read and follow `AGENT_REVIEW_PROTOCOL.md`. Inspect actual project evidence, adapt the methodology to what is applicable, give me the structured diagnostic score and evidence-backed findings, and do not modify the target unless I explicitly ask.**
+> **Review `<TARGET_PROJECT>` using Agentic Engineering Review at `https://github.com/Charlie-Wang-03/Agentic-Open-Source-Engineering-Methodology`. First read and follow `AGENT_REVIEW_PROTOCOL.md`. Inspect actual project evidence, determine which review dimensions materially apply, give me the structured Diagnostic Score and evidence-backed findings, and do not modify the target unless I explicitly ask.**
 
-`<TARGET_PROJECT>` may be the agent's current local workspace, a local project directory, a GitHub repository, another remote repository, or another project source the agent can actually inspect.
+`<TARGET_PROJECT>` can be:
 
-The target does **not** need to be open source or Git-based. The methodology remains oriented toward agentic open-source engineering, but the review protocol applies its dimensions selectively: genuinely irrelevant dimensions are marked `N/A` rather than treated as failures.
+- the agent's current local workspace;
+- a local project directory;
+- a GitHub or other remote repository;
+- a private or internal project the agent can actually inspect;
+- a non-Git project source with sufficient accessible evidence.
 
-The review is evidence-first and read-only by default. See the canonical, tool-independent [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md).
+The canonical, tool-independent execution contract is [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md). Reviews are **read-only by default**.
 
-If the agent cannot access either the methodology or material parts of the target, it should report the limitation rather than pretend to have completed a full review.
+## What You Get
 
-## Why This Exists
+A normal review produces:
 
-AI agents are making software generation dramatically cheaper. The resulting bottleneck increasingly shifts toward engineering judgment: defining constraints, structuring projects, validating changes, managing risk, preserving user control, and deciding when defaults should be overridden.
+- an applicability-aware **0–100 Diagnostic Score** when evidence coverage is sufficient;
+- **Evidence Coverage** so missing evidence is visible rather than guessed away;
+- the highest-value engineering gaps worth fixing now;
+- accepted trade-offs that should remain as they are;
+- unresolved questions that need more evidence;
+- deliberately deferred concerns where remediation costs more than it is worth;
+- three to five prioritized next actions.
 
-This repository develops a concise decision system primarily for open-source projects in which humans and AI agents work together, while also exposing a portable external-review protocol that can inspect broader project types where the methodology is materially applicable.
+The score is a compact diagnostic summary, not certification and not a benchmark for comparing unrelated projects.
 
-It aims to be:
+## How It Works
 
-- practical enough to change real engineering decisions;
-- explicit enough for developers and coding agents to follow;
-- stable at the principle layer while allowing practices to evolve;
-- lightweight enough for small teams and independent developers;
-- open to adaptation rather than prescriptive about one stack or workflow.
+```text
+Target Project
+    ↓
+Your AI Agent
+    ↓
+Agent Review Protocol
+    ↓
+Evidence → Applicability → Engineering Judgment → Trade-offs
+    ↓
+Structured Review
+```
 
-## Who This Is For
+The protocol requires the agent to:
 
-The methodology is especially intended for:
+1. resolve what project state it can actually inspect;
+2. understand the project's purpose, users, constraints, and maturity before judging it;
+3. inspect real evidence rather than trusting branding or README claims alone;
+4. mark each review dimension as `Material`, `Relevant`, or `N/A` before scoring;
+5. use `NE — Not Enough Evidence` instead of inventing certainty;
+6. distinguish real gaps from justified engineering trade-offs;
+7. remain read-only unless the user separately authorizes implementation.
 
-- independent developers who use coding agents heavily;
-- developers entering software engineering through AI-assisted development;
-- technical AI product builders and product managers who work directly with prototypes, repositories, and coding agents;
-- maintainers who want clearer human-agent collaboration without introducing a heavyweight process framework.
+## Built for Agent-Heavy Project Work
 
-It assumes that AI agents can accelerate implementation but do not replace accountable engineering judgment.
+Agentic Engineering Review is especially useful for:
 
-## Meta-Principle
+- **AI-native builders** — independent developers and engineers who rely heavily on coding agents;
+- **technical product builders** — AI product managers, prototypers, and independent AI developers working directly with repositories and agents;
+- **FDE / solution engineers** — people operating across customer environments, deployment constraints, providers, permissions, data boundaries, and fast-changing project requirements;
+- maintainers who want stronger engineering judgment without introducing a heavyweight compliance process.
 
-### Outcomes over Dogma
+The target does not need to be open source. Review dimensions that do not materially apply are marked `N/A` rather than treated as failures.
 
-**Project outcomes come first. Principles guide engineering judgment; they do not replace it.**
+## Why It Is Different
 
-When a default conflicts with the explicit goals, users, quality, security, performance, maintainability, or constraints of a project, use:
+### Evidence before judgment
+
+The agent should inspect implementation, configuration, tests, CI, dependencies, history, runtime evidence, or other relevant project material before making broad claims.
+
+### Applicability before scoring
+
+The system does not force every project through the same checklist. A private internal project may reasonably treat openness as `N/A`; a static documentation project may have no meaningful local/remote runtime boundary.
+
+### Trade-offs, not compliance
+
+A non-default choice is not automatically a defect. Material deviations use:
 
 `Default → Conflict → Trade-off → Exception → Evidence → Revisit`
 
-> **Deviation is allowed; unexplained deviation is not.**
+A proprietary solver, cloud platform, or provider can be the correct engineering choice when the evidence supports it.
 
-## Core Principles
+### Agent-executable, human-accountable
+
+The protocol is written so capable AI agents can execute it directly, but engineering responsibility remains human. The agent produces structured judgment support; it does not replace accountable project decisions.
+
+## Diagnostic Scoring
+
+Each applicable dimension receives an applicability state first:
+
+| Applicability | Meaning | Weight |
+| --- | --- | ---: |
+| `Material` | Meaningfully affects project outcomes or risk | 2 |
+| `Relevant` | Worth reviewing but secondary | 1 |
+| `N/A` | Not meaningfully applicable | excluded |
+
+Evidence-backed applicable dimensions are scored from `0` to `4` and assigned `High`, `Medium`, or `Low` confidence. Applicable dimensions without enough evidence are `NE` instead of receiving a guessed score.
+
+An overall `/100` Diagnostic Score is issued only when weighted **Evidence Coverage ≥ 70%**. See the exact rules in the [Agent Review Protocol](AGENT_REVIEW_PROTOCOL.md) and the human-readable [Project Review](templates/PROJECT_REVIEW.md).
+
+## Powered by an Agentic Engineering Methodology
+
+The review system is backed by a methodology that is readable by both humans and agents.
+
+Its meta-principle is **Outcomes over Dogma**:
+
+> **Project outcomes come first. Principles guide engineering judgment; they do not replace it.**
+
+The nine current principles are:
 
 1. **Open by Default**
 2. **Agent-Native, Human-Accountable**
@@ -69,128 +131,74 @@ When a default conflicts with the explicit goals, users, quality, security, perf
 8. **Verifiable by Default**
 9. **Reversible Change**
 
-The principles intentionally mix durable values, engineering defaults, constraints, and preferred means. What makes them principles in this methodology is that they repeatedly change engineering decisions across projects. See [Principles](docs/principles.md).
+They intentionally mix durable values, engineering defaults, constraints, decision rules, and preferred means. They are applied selectively according to the target project's real purpose and constraints.
 
-Not every principle or review dimension is material to every target. Applicability must be determined from the target project's actual purpose and constraints before judging alignment.
-
-## Methodology Structure
-
-The methodology separates three operational layers and one governance layer:
-
-1. **Principles** — durable values, defaults, constraints, and preferences that shape decisions;
-2. **Decision Framework** — how to resolve conflicts, trade-offs, and justified exceptions;
-3. **Practices** — how to implement the methodology in repositories, agent instructions, validation, contribution workflows, and releases;
-4. **Governance** — how the methodology itself changes without drifting or accumulating rules for their own sake.
-
-The external Agent Review Protocol is an execution interface over those sources; it does not create a new principle layer.
-
-Start here:
-
-- [Agent Review Protocol](AGENT_REVIEW_PROTOCOL.md) — execute a review of another project;
-- [Principles](docs/principles.md) — durable decision defaults;
-- [Decision Framework](docs/decision-framework.md) — trade-offs and justified exceptions;
-- [Practices](docs/practices.md) — implementation guidance;
-- [Governance](docs/governance.md) — evolution of the methodology itself.
-
-## Two Ways to Use the Methodology
+## Two Ways to Use It
 
 ### 1. External Review — default
 
-Keep the methodology outside the target project and use it at meaningful checkpoints such as:
+Keep this repository outside the target project and invoke it at meaningful checkpoints such as:
 
 - serious project start;
-- major architecture or dependency decision;
-- substantial refactor;
+- major architecture or dependency decisions;
+- substantial refactors;
 - preparation for public release;
-- important release;
+- important releases;
 - post-incident or post-failure review.
 
-The Agent Review Protocol produces an applicability-aware scorecard, evidence coverage, high-value gaps, accepted trade-offs, unresolved evidence needs, deferred concerns, and prioritized next actions.
-
-The review should normally leave no methodology-specific files in the target project.
+A normal external review leaves no methodology-specific files in the target project.
 
 ### 2. Selective Adoption — when useful
 
-If a review exposes recurring project-specific needs, translate only those needs into the target project's own engineering artifacts.
+If a review exposes recurring project-specific needs, translate only those needs into the target project's own engineering artifacts. For example:
 
-For example:
+- adapt [`templates/AGENTS.md.template`](templates/AGENTS.md.template) when coding-agent context is genuinely weak;
+- use a [Decision Record](templates/DECISION_RECORD.md) for a high-impact choice that deserves durable evidence;
+- add tests, validation, safeguards, or documentation because the target needs them—not to improve a methodology score.
 
-- adapt [`templates/AGENTS.md.template`](templates/AGENTS.md.template) when clearer coding-agent context would materially help;
-- use a [Decision Record](templates/DECISION_RECORD.md) for a high-impact decision that deserves durable evidence;
-- add tests, validation, documentation, or safeguards because the target needs them—not merely to demonstrate methodology compliance.
+Do not copy the full methodology into every project.
 
-Do not copy all principles or methodology files into every project.
+## Go Deeper
 
-## Diagnostic Scoring
+| Resource | Purpose |
+| --- | --- |
+| [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md) | Canonical agent-executable review procedure and output contract |
+| [Principles](docs/principles.md) | Durable engineering defaults and values |
+| [Decision Framework](docs/decision-framework.md) | Trade-offs, exceptions, evidence, and revisit rules |
+| [Practices](docs/practices.md) | Faster-moving implementation guidance |
+| [Governance](docs/governance.md) | How the methodology and protocol evolve |
+| [Project Review](templates/PROJECT_REVIEW.md) | Human-readable review dimensions and scoring rubric |
 
-The external review protocol provides a structured diagnostic score without turning the methodology into a certification framework.
+## Limits
 
-For each applicable review dimension:
+Agentic Engineering Review is **not**:
 
-- applicability is classified as `Material`, `Relevant`, or `N/A`;
-- evidence-backed dimensions receive a `0–4` score plus confidence;
-- applicable dimensions with insufficient evidence are marked `NE` rather than guessed;
-- `N/A` dimensions do not reduce the score;
-- an overall `/100` Diagnostic Score is issued only when weighted Evidence Coverage reaches at least 70%.
+- a security certification or substitute for a dedicated security audit;
+- a compliance framework;
+- a guarantee of software quality;
+- a universal maturity benchmark across unrelated projects;
+- a requirement to use one model, agent, platform, or stack;
+- permission for an agent to modify a target project merely because a review was requested.
 
-The score summarizes the inspected state. It does not replace findings, does not erase critical individual gaps, and should not be used as a universal benchmark across unrelated projects.
+If an agent cannot access important methodology or target-project evidence, it should report the limitation and degrade the review rather than fabricate completeness.
 
-See [Project Review](templates/PROJECT_REVIEW.md) and the [Agent Review Protocol](AGENT_REVIEW_PROTOCOL.md).
+## Repository Status
 
-## Repository as Reference Implementation
+This repository is also one of the system's own test subjects. It intentionally remains Markdown-first, with a small standard-library validator rather than a heavy documentation stack.
 
-This repository is also one of the methodology's test subjects. It should practice what it describes, while remaining proportionate to the fact that it is primarily a Markdown documentation repository.
-
-It therefore favors:
-
-- clear separation between [`AGENTS.md`](AGENTS.md), which governs work on this repository, and [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md), which governs reviews of external target projects;
-- bilingual entry points and paired core methodology documents;
-- lightweight automated validation rather than a large documentation toolchain;
-- focused and reversible changes;
-- explicit document responsibilities;
-- minimal unnecessary dependencies and automation.
-
-Run repository validation with:
+Run:
 
 ```bash
 python3 scripts/validate_repo.py
 ```
 
-## Language Policy
+English is the default operational language. Simplified Chinese is maintained as a first-class reading path for the README and core methodology documents. The canonical Agent Review Protocol remains English-first; review output should normally follow the user's language.
 
-English is the default language for repository operations and international open-source collaboration. Simplified Chinese is maintained as a first-class reading path for the README and core methodology documents.
-
-The Agent Review Protocol remains a single English canonical operational file; reviews should normally be written in the user's language. Not every operational file is duplicated in both languages. Translation should improve actual accessibility, not exist only for symmetry. See [Governance](docs/governance.md#language-and-documentation-policy).
-
-## Scope
-
-This project focuses on engineering methodology for human-agent collaboration in open-source software. Its external review protocol can also examine private, local, internal, or non-Git projects by applying only the dimensions that materially fit the target.
-
-It is **not** intended to be:
-
-- a catalog of current AI products or models;
-- a claim that all projects should use the same stack;
-- a certification standard or compliance framework;
-- a security audit substitute;
-- a collection of invented case studies;
-- a blog or content-marketing repository;
-- a replacement for established software engineering, security, or open-source standards.
-
-Tool-specific guidance belongs in the practice layer and may change rapidly.
-
-## How It Evolves
-
-The methodology is developed through real engineering feedback:
-
-`Principles → Projects → Decisions → Failures / Successes → Lessons → Revised Methodology`
-
-External practices may inform the methodology, but they should be adopted only when they improve this project's decision system rather than because they are fashionable or widely used.
-
-The repository remains private during incubation. A public release should happen only after a dedicated documentation, privacy, history, governance, methodology-consistency, and cross-agent review-protocol test.
+The repository remains private during incubation. Public release should happen only after dedicated methodology, documentation, privacy, Git-history, governance, and cross-agent protocol validation.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). During private incubation, changes should remain evidence-driven and conservative about expanding the core principle set.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Contributions should improve real engineering decisions, review reliability, or adoption rather than add process for its own sake.
 
 ## License
 

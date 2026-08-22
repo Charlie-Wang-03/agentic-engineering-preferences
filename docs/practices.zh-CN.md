@@ -2,7 +2,7 @@
 
 [English](practices.md)
 
-Practices 是本方法论中变化较快的实现层，用于把相对稳定的原则与决策规则落实为具体项目行为。
+Practices 是 **Agentic Engineering Methodology** 及其 Review 系统中变化较快的实现层，用于把相对稳定的原则与决策规则落实为具体项目行为。
 
 与核心原则不同，实践可以随着工具、Agent 能力、托管平台和软件工程惯例的发展而调整。
 
@@ -27,15 +27,15 @@ Agent 指令应强调目标、约束、不变量和验证路径，但不要无�
 
 不同文档应承担不同职责，不要把一个文件写成包办一切的万能说明书。
 
-对于本方法论仓库，一种合理分工是：
+对于本 Review 系统仓库，一种合理分工是：
 
-- `README.md` — 项目发现、目标用户、边界与采用路径；
+- `README.md` — 产品发现、目标用户、边界、一句话入口与采用路径；
 - `AGENT_REVIEW_PROTOCOL.md` — Agent 审查外部目标项目时的 canonical 执行协议；
 - `docs/principles*` — 相对稳定的工程原则；
 - `docs/decision-framework*` — 冲突、trade-off 与例外处理；
 - `docs/practices*` — 可以更快演化的落地实践；
-- `docs/governance*` — 方法论自身如何修改；
-- `AGENTS.md` — Agent 维护本方法论仓库时的执行约束；
+- `docs/governance*` — 方法论、Protocol 与产品向派生产物如何演化；
+- `AGENTS.md` — Agent 维护本仓库时的执行约束；
 - `CONTRIBUTING.md` — 贡献流程与要求；
 - `templates/` — 从方法论派生出的可复用产物。
 
@@ -45,7 +45,7 @@ Agent 指令应强调目标、约束、不变量和验证路径，但不要无�
 
 只有在确实改善可访问性时才维护双语文档，不要求仓库中的每个文件都存在中英两个版本。
 
-对于本方法论仓库，默认维护中英配对的内容包括：
+对于本仓库，默认维护中英配对的内容包括：
 
 - README；
 - 经常由人阅读的核心方法论文档；
@@ -130,9 +130,9 @@ Agent 指令应强调目标、约束、不变量和验证路径，但不要无�
 
 不要把高级架构或方法论的所有概念强行塞进初始采用路径。同样，也不得用 newcomer-friendly 的标准去评价一个明确只服务内部专家的项目。
 
-## 9. 外部方法论审查
+## 9. 外部工程 Review
 
-本方法论默认采用 **external review lens**，而不是要求每个项目继承方法论文件。
+**Agentic Engineering Review** 默认采用 **external review lens**，而不是要求每个项目继承方法论文件。
 
 在真正有价值的节点，AI Agent 可以使用本仓库审查目标项目，但默认不修改目标。目标可以公开或私有、位于本地或远程，也不要求使用 Git。
 

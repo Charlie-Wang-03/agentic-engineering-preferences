@@ -2,23 +2,23 @@
 
 [简体中文](governance.zh-CN.md)
 
-This document governs how the methodology itself changes. It is intentionally lightweight: governance should protect coherence without turning a small methodology repository into a process-heavy standards body.
+This document governs how the **Agentic Engineering Methodology** and Agent Review Protocol evolve inside **Agentic Engineering Review**. It is intentionally lightweight: governance should protect coherence without turning a small Markdown-first project into a process-heavy standards body.
 
 ## 1. Normative Structure
 
 The repository separates responsibilities:
 
-- `docs/principles.md` — durable decision principles;
+- `README.md` — product identity, orientation, audience, one-prompt entry, scope, and adoption path;
+- `AGENT_REVIEW_PROTOCOL.md` — canonical execution contract for agents reviewing an external target project;
+- `docs/principles.md` — durable decision principles of the Agentic Engineering Methodology;
 - `docs/decision-framework.md` — conflict, trade-off, exception, and evidence handling;
 - `docs/practices.md` — faster-moving implementation guidance;
-- `docs/governance.md` — how those documents evolve;
-- `AGENT_REVIEW_PROTOCOL.md` — canonical execution contract for agents reviewing an external target project;
-- `AGENTS.md` — operational constraints for agents working on this methodology repository;
+- `docs/governance.md` — how the methodology, protocol, and their derived artifacts evolve;
+- `AGENTS.md` — operational constraints for agents working on this repository;
 - `templates/PROJECT_REVIEW.md` — review dimensions and human-readable diagnostic rubric;
-- other `templates/` — reusable artifacts derived from the methodology;
-- `README.md` — orientation, audience, scope, and adoption path.
+- other `templates/` — reusable artifacts derived from the methodology.
 
-`AGENTS.md` and `AGENT_REVIEW_PROTOCOL.md` must not be conflated: one governs modification of this repository; the other governs application of this repository to a separate target project.
+`AGENTS.md` and `AGENT_REVIEW_PROTOCOL.md` must not be conflated: one governs modification of this repository; the other governs application of Agentic Engineering Review to a separate target project.
 
 When the same rule appears in multiple places, prefer one canonical normative source and links or short summaries elsewhere.
 
@@ -58,31 +58,38 @@ Changes to the review protocol should preserve these invariants unless evidence 
 
 Prominent external repositories and agent tools are evidence sources, not authorities to copy mechanically.
 
+### Product identity and onboarding changes
+
+Branding, README hierarchy, visual assets, and first-use paths may evolve when the current presentation no longer matches the system's actual capability or target audience. Product presentation must not invent adoption, compatibility, benchmarks, testimonials, or review results.
+
+Visual and copy changes should expose real mechanisms more clearly rather than add decoration for its own sake.
+
 ### Repository implementation changes
 
-Automation, scripts, templates, and repository structure should remain proportional to this repository's actual risk and maintenance needs.
+Automation, scripts, templates, visual assets, and repository structure should remain proportional to this repository's actual risk and maintenance needs.
 
 ## 3. Change Propagation
 
-A methodology change is incomplete if derived artifacts become misleading.
+A methodology, protocol, or identity change is incomplete if derived artifacts become misleading.
 
 When relevant, review:
 
-- README summaries, one-prompt entry points, and navigation;
+- README summaries, one-prompt entry points, product identity, and navigation;
 - paired core-language documents;
 - `AGENT_REVIEW_PROTOCOL.md`;
 - `AGENTS.md`;
 - `templates/PROJECT_REVIEW*` and other affected templates;
 - validation rules;
-- pull-request guidance.
+- pull-request guidance;
+- README visual assets when the product story or mechanism changes.
 
-A principle change does not automatically require a scoring change. Likewise, a protocol wording change should not trigger unrelated methodology edits merely for synchronization.
+A principle change does not automatically require a scoring change. Likewise, a protocol wording or product-copy change should not trigger unrelated methodology edits merely for synchronization.
 
 Do not update unrelated files merely to create a large synchronized change.
 
 ## 4. Language and Documentation Policy
 
-English is the default operational language for international open-source collaboration. Simplified Chinese is a first-class reading path for the repository's core methodology.
+English is the default operational language for international engineering and open-source collaboration. Simplified Chinese is a first-class reading path for the product entry point and core methodology.
 
 Maintain paired English / Simplified Chinese versions for:
 
@@ -101,9 +108,10 @@ Paired documents should remain semantically equivalent, but natural technical wr
 
 ## 5. Versioning and Review Traceability
 
-During private incubation, `v0.x` labels describe methodology maturity rather than a promise of strict semantic versioning.
+During private incubation, `v0.x` labels describe coherent **project maturity milestones** across the review system, protocol, underlying methodology, and adoption experience. They are not a promise of strict semantic versioning.
 
-- a minor incubation version should represent a coherent methodology milestone;
+- a minor incubation version should represent a coherent project milestone rather than a wording-only edit;
+- a milestone may be driven by methodology, protocol behavior, product identity, adoption UX, or another material project capability;
 - ordinary wording or maintenance changes do not require a new version label;
 - Git tags and GitHub Releases should be created only for intentionally published milestones;
 - the first public release should have a dedicated release-readiness review rather than inheriting a version number automatically.
@@ -127,16 +135,16 @@ Do not optimize the methodology for higher scores or encourage target projects t
 
 ## 7. Evidence and Decision Records
 
-Most methodology changes can be explained in a focused pull request. Use a durable Decision Record only when the choice has broad impact, is difficult to reverse, or is likely to be revisited later.
+Most changes can be explained in a focused pull request. Use a durable Decision Record only when the choice has broad impact, is difficult to reverse, or is likely to be revisited later.
 
 Governance should not create documentation merely to prove that governance exists.
 
 ## 8. Repository as a Test Subject
 
-This repository is one of the methodology's own test subjects. If its stated principles and actual maintenance behavior diverge, treat the inconsistency as evidence that either:
+This repository is one of the review system's and methodology's own test subjects. If its stated principles, product promises, and actual maintenance behavior diverge, treat the inconsistency as evidence that either:
 
-1. the repository implementation should change; or
-2. the methodology is too broad, expensive, or ambiguous and should be revised.
+1. the repository implementation or product presentation should change; or
+2. the methodology, protocol, or promise is too broad, expensive, or ambiguous and should be revised.
 
 The Agent Review Protocol is also a testable artifact. Before public release, it should be exercised against multiple target-project shapes and, where practical, multiple capable agent environments. Test behavioral invariants rather than expecting identical prose from different models.
 
@@ -146,9 +154,10 @@ Self-consistency is a diagnostic tool, not a reason to over-engineer the reposit
 
 Before changing the repository from private incubation to public release, perform a dedicated review of:
 
+- product identity and first-screen clarity;
 - methodology coherence and scope;
-- README and onboarding;
-- the one-prompt external-review path;
+- README and one-prompt onboarding;
+- README visual assets and accessibility;
 - review-protocol behavior on representative targets;
 - privacy, secrets, and Git history;
 - license and attribution;

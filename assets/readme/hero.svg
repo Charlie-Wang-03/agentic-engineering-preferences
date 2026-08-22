@@ -24,7 +24,7 @@
 
   <line x1="695" y1="48" x2="695" y2="352" stroke="#26313D" stroke-width="2"/>
 
-  <g id="review-flow" transform="translate(744 42)">
+  <g id="review-flow" transform="translate(744 28)">
     <rect x="0" y="0" width="390" height="54" rx="12" fill="#111820" stroke="#344150" stroke-width="1.5"/>
     <text x="22" y="22" fill="#8F9AA6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">01 · TARGET</text>
     <text x="22" y="43" fill="#F5F7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="650">Your project or workspace</text>

@@ -1,11 +1,11 @@
 # Agent Review Protocol
 
-This file is the canonical, tool-independent execution protocol for using the **Agentic Open-Source Engineering Methodology** to review a separate target project.
+This file is the canonical, tool-independent execution protocol for **Agentic Engineering Review**. It applies the **Agentic Engineering Methodology** to review a separate target project.
 
 It is intentionally different from this repository's [`AGENTS.md`](AGENTS.md):
 
-- `AGENTS.md` governs agents **modifying this methodology repository**;
-- `AGENT_REVIEW_PROTOCOL.md` governs agents **using this methodology to review another project**.
+- `AGENTS.md` governs agents **modifying this repository**;
+- `AGENT_REVIEW_PROTOCOL.md` governs agents **using Agentic Engineering Review to review another project**.
 
 The target may be a GitHub repository, another remote repository, a local project directory, the current agent workspace, or another project source the agent can actually inspect. The target does not need to be open source or even Git-based. Apply only the methodology dimensions that materially fit the target.
 
@@ -24,7 +24,7 @@ Do not:
 
 A request to "review", "check", "audit", "analyze", or similar language does not by itself authorize remediation.
 
-This is a methodology review, not a security certification, compliance audit, or guarantee of software quality.
+This is a methodology-backed engineering review, not a security certification, compliance audit, or guarantee of software quality.
 
 ## 2. Resolve Review Scope and Access
 

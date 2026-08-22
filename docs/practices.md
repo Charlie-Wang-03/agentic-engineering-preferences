@@ -2,39 +2,40 @@
 
 [简体中文](practices.zh-CN.md)
 
-Practices are the fast-moving implementation layer of the methodology. They translate durable principles and decision rules into repository behavior.
+Practices are the fast-moving implementation layer of the methodology. They translate durable principles and decision rules into project behavior.
 
 Unlike the core principles, practices may change as tools, agent capabilities, hosting platforms, and engineering conventions evolve.
 
-## 1. Repository Context for Agents
+## 1. Project Context for Agents
 
-Provide clear repository-level instructions for coding agents.
+Provide clear project-level instructions for coding agents when they materially help.
 
 Prefer:
 
-- a concise root `AGENTS.md` or equivalent repository instruction file;
+- a concise root `AGENTS.md` or equivalent project instruction file;
 - explicit validation commands;
-- clear directory responsibilities and repository invariants;
+- clear directory responsibilities and project invariants;
 - explicit completion criteria;
 - documented high-risk or destructive operations;
 - minimal reliance on unwritten local knowledge.
 
 Agent instructions should explain goals, constraints, invariants, and verification paths without prescribing unnecessary implementation detail.
 
-For larger repositories, scoped or nested agent instructions may be useful when a subsystem has genuinely different commands, constraints, or invariants. Do not create instruction files for every directory merely because the mechanism exists.
+For larger projects, scoped or nested agent instructions may be useful when a subsystem has genuinely different commands, constraints, or invariants. Do not create instruction files for every directory merely because the mechanism exists.
 
 ## 2. Documentation Responsibilities
 
 Give each document a clear job instead of turning one file into a universal source of detail.
 
-A useful default is:
+For this methodology repository, a useful separation is:
 
 - `README.md` — discovery, audience, scope, and adoption path;
+- `AGENT_REVIEW_PROTOCOL.md` — canonical execution protocol for reviewing an external target project;
 - `docs/principles*` — durable engineering principles;
 - `docs/decision-framework*` — conflict and exception handling;
 - `docs/practices*` — implementation guidance that may evolve faster;
 - `docs/governance*` — how the methodology itself changes;
-- `AGENTS.md` — agent operating constraints for this repository;
+- `AGENTS.md` — agent operating constraints for this methodology repository;
 - `CONTRIBUTING.md` — contribution workflow and expectations;
 - `templates/` — reusable derived artifacts.
 
@@ -50,7 +51,9 @@ For this methodology repository, maintain English and Simplified Chinese pairs f
 - core methodology documents intended for regular human reading;
 - user-facing templates when the translation has practical value.
 
-Operational files such as `AGENTS.md`, workflow configuration, or contribution mechanics may remain English-first unless a translation materially improves usability.
+Operational files such as `AGENTS.md`, `AGENT_REVIEW_PROTOCOL.md`, workflow configuration, or contribution mechanics may remain English-first unless a translation materially improves usability.
+
+Agent-executed reviews should normally be written in the user's language.
 
 Keep paired documents semantically aligned, but write naturally in each language rather than forcing literal translation.
 
@@ -58,7 +61,7 @@ Keep paired documents semantically aligned, but write naturally in each language
 
 Prefer changes that have a clear verification path.
 
-Depending on the repository, verification may include:
+Depending on the project, verification may include:
 
 - tests;
 - linting;
@@ -69,7 +72,7 @@ Depending on the repository, verification may include:
 - reproducible examples;
 - CI checks.
 
-Verification should be proportional to the repository and the risk. Do not add validation machinery whose maintenance cost exceeds the risk it controls.
+Verification should be proportional to the project and the risk. Do not add validation machinery whose maintenance cost exceeds the risk it controls.
 
 ## 5. Reviewable and Reversible Work
 
@@ -98,24 +101,26 @@ Before adding a dependency, identify:
 
 Prefer mature external infrastructure over fragile reimplementation when the dependency is justified. For documentation-only repositories, keep the tooling baseline especially small unless stronger automation solves a demonstrated problem.
 
-## 7. Privacy and Repository Hygiene
+## 7. Privacy and Project Hygiene
 
 Keep private and public material intentionally separated.
 
-At minimum:
+At minimum, where relevant:
 
 - do not commit credentials or secrets;
-- avoid machine-specific private paths;
-- keep unpublished or private project data out of public artifacts;
+- avoid leaking machine-specific private paths into public artifacts;
+- keep unpublished or private project data out of unintended public outputs;
 - document external data transmission when it matters;
 - use least-necessary permissions for agents and automation;
 - review Git history before making a previously private repository public.
 
+For external reviews of private or local targets, do not upload target material to another service merely to perform the review unless the user explicitly authorizes that data flow.
+
 ## 8. Progressive User Experience
 
-Design onboarding in layers.
+Design onboarding in layers around the users a project actually serves.
 
-A newcomer should be able to answer quickly:
+A newcomer-facing project should make it easy to answer:
 
 1. What is this project?
 2. Who is it for?
@@ -123,17 +128,44 @@ A newcomer should be able to answer quickly:
 4. What are the major assumptions or limitations?
 5. Where can advanced or internal details be found?
 
-Do not force advanced architecture or every methodology concept into the initial adoption path.
+Do not force advanced architecture or every methodology concept into the initial adoption path. Likewise, do not judge an intentionally expert-only internal project against a newcomer experience it never claims to provide.
 
-## 9. Project Review
+## 9. External Methodology Review
 
-Use a lightweight project review to expose missing engineering decisions before adding more process.
+The default adoption model is an **external review lens**, not inheritance of methodology files into every project.
 
-The review should ask about purpose, users, agent context, privacy boundaries, dependencies, validation, reversibility, portability, and onboarding. It is a diagnostic aid, not a certification score.
+At meaningful checkpoints, an AI agent may use this repository to review a target project without modifying it. The target may be local or remote, public or private, Git-based or not.
 
-See [`templates/PROJECT_REVIEW.md`](../templates/PROJECT_REVIEW.md).
+Use the canonical [`AGENT_REVIEW_PROTOCOL.md`](../AGENT_REVIEW_PROTOCOL.md) for agent-executed reviews and [`templates/PROJECT_REVIEW.md`](../templates/PROJECT_REVIEW.md) for the review dimensions.
 
-## 10. Decision Records
+Important behaviors:
+
+- inspect actual evidence before judging the project;
+- determine applicability before scoring;
+- allow `N/A` where a methodology dimension is genuinely irrelevant;
+- distinguish gaps from justified trade-offs;
+- expose evidence limitations instead of guessing;
+- remain read-only unless remediation is separately authorized.
+
+The review should normally leave no methodology-specific files in the target project.
+
+## 10. Diagnostic Scoring
+
+A structured score can help users understand a review, but it must remain subordinate to evidence and findings.
+
+The standard review uses:
+
+- `Material`, `Relevant`, or `N/A` applicability;
+- `0–4` evidence-backed dimension scores;
+- `NE` when evidence is insufficient;
+- per-dimension evidence confidence;
+- an overall `/100` Diagnostic Score only when weighted Evidence Coverage reaches at least 70%.
+
+`N/A` does not reduce the score. A high aggregate score does not erase a critical individual gap. Do not use scores as universal benchmarks across unrelated projects.
+
+The exact formula and output contract are normative in [`AGENT_REVIEW_PROTOCOL.md`](../AGENT_REVIEW_PROTOCOL.md).
+
+## 11. Decision Records
 
 Use formal decision records only when the decision merits them.
 
@@ -141,7 +173,7 @@ For ordinary work, a clear PR or commit explanation is enough. For higher-impact
 
 See [`templates/DECISION_RECORD.md`](../templates/DECISION_RECORD.md).
 
-## 11. Release Readiness
+## 12. Release Readiness
 
 Before a public release or visibility change, review:
 
@@ -149,15 +181,15 @@ Before a public release or visibility change, review:
 - README and onboarding;
 - language coverage that the project actually promises;
 - secrets and private data;
-- repository history;
+- repository history where applicable;
 - dependencies;
 - validation status;
-- contribution and conduct guidance;
+- contribution and conduct guidance when relevant;
 - release scope and known limitations.
 
 Public release is an engineering decision, not merely a repository setting change.
 
-## 12. Evolving Practices
+## 13. Evolving Practices
 
 Practices should be updated when real project experience or tooling changes justify it.
 

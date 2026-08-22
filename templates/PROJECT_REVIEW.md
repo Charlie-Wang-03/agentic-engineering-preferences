@@ -2,7 +2,7 @@
 
 [简体中文](PROJECT_REVIEW.zh-CN.md)
 
-Use this review to expose important engineering gaps in a target project through the Agentic Open-Source Engineering Methodology.
+Use this review to expose important engineering gaps in a target project through **Agentic Engineering Review** and its underlying **Agentic Engineering Methodology**.
 
 The target may be public or private, local or remote, Git-based or not. Apply only the dimensions that materially fit the project. This is a diagnostic review, not certification, compliance, or a universal maturity benchmark.
 

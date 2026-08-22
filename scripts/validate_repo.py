@@ -22,6 +22,7 @@ REQUIRED_FILES = [
     "CONTRIBUTING.md",
     "CODE_OF_CONDUCT.md",
     "AGENTS.md",
+    "AGENT_REVIEW_PROTOCOL.md",
     "docs/principles.md",
     "docs/principles.zh-CN.md",
     "docs/decision-framework.md",
@@ -59,9 +60,18 @@ PRINCIPLE_HEADINGS = [
 
 REQUIRED_PHRASES = {
     "README.md": [
-        "Outcomes over Dogma",
-        "docs/governance.md",
-        "templates/PROJECT_REVIEW.md",
+        "Status: v0.3",
+        "AGENT_REVIEW_PROTOCOL.md",
+        "Diagnostic Score",
+        "Evidence Coverage",
+        "N/A",
+    ],
+    "README.zh-CN.md": [
+        "当前状态：v0.3",
+        "AGENT_REVIEW_PROTOCOL.md",
+        "Diagnostic Score",
+        "Evidence Coverage",
+        "N/A",
     ],
     "docs/decision-framework.md": [
         "Default → Conflict → Trade-off → Exception → Evidence → Revisit",
@@ -69,10 +79,31 @@ REQUIRED_PHRASES = {
     "docs/governance.md": [
         "Repository as a Test Subject",
         "Language and Documentation Policy",
+        "Diagnostic Scoring Governance",
+        "AGENT_REVIEW_PROTOCOL.md",
     ],
     "AGENTS.md": [
         "Deviation is allowed; unexplained deviation is not.",
         "Repository Invariants",
+        "AGENT_REVIEW_PROTOCOL.md",
+    ],
+    "AGENT_REVIEW_PROTOCOL.md": [
+        "read-only review mode",
+        "Evidence Before Judgment",
+        "Determine Applicability Before Scoring",
+        "NE — Not Enough Evidence",
+        "Evidence Coverage",
+        "Diagnostic Score",
+        "70%",
+        "N/A",
+    ],
+    "templates/PROJECT_REVIEW.md": [
+        "Applicability First",
+        "NE — Not Enough Evidence",
+        "Diagnostic Scale",
+        "Diagnostic Score",
+        "Evidence Coverage",
+        "N/A",
     ],
 }
 
@@ -81,10 +112,6 @@ MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
 def error(message: str) -> None:
     print(f"ERROR: {message}")
-
-
-def read(relative: str) -> str:
-    return (ROOT / relative).read_text(encoding="utf-8")
 
 
 def validate_required_files() -> int:

@@ -8,7 +8,7 @@
 
 [English](README.md)
 
-> **当前状态：v0.4 — 私有孵化。** Review Protocol 与底层方法论正在真实项目中持续验证。本项目是一套具有明确工程取向的开放 Review 系统，而不是行业标准、认证体系或合规框架。
+> **当前状态：v0.4 — 公开预览。** Review Protocol 与底层方法论现已面向真实项目开放使用、反馈与验证。本项目是一套具有明确工程取向的开放 Review 系统，而不是行业标准、认证体系或合规框架。
 
 ## 用一句话审查你的项目
 
@@ -194,11 +194,11 @@ python3 scripts/validate_repo.py
 
 英文是默认操作语言；README 与核心方法论文档提供完整简体中文一等阅读路径。canonical Agent Review Protocol 保持 English-first，而 Review 输出通常应跟随用户语言。
 
-仓库在孵化阶段继续保持私有。首次公开前应专门完成方法论、文档、隐私、Git 历史、治理以及跨 Agent Protocol 行为验证。
+仓库现处于 **公开预览**。真实项目反馈与跨 Agent 行为验证将继续推动后续版本演化，在获得足够证据之前不做 `v1.0` 稳定性承诺。
 
 ## 参与贡献
 
-参见 [CONTRIBUTING.md](CONTRIBUTING.md)。贡献应优先改善真实工程判断、Review 可靠性或采用体验，而不是为了完整性增加流程。
+参见 [CONTRIBUTING.md](CONTRIBUTING.md)。贡献应优先改善真实工程判断、Review 可靠性或采用体验，而不是为了完整性增加流程。涉及安全敏感问题时，请遵循 [SECURITY.md](SECURITY.md)，不要直接创建公开 Issue。
 
 ## License
 

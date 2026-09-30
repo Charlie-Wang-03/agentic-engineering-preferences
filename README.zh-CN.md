@@ -1,205 +1,76 @@
-<p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Agentic Engineering Review：让 AI Agent 基于证据审查软件项目的开放工程 Review 系统">
-</p>
+# Agentic Engineering Preferences
 
-# Agentic Engineering Review
-
-> 让你的 AI Agent 基于真实项目证据，对软件项目进行适用性自适应的结构化工程 Review，并给出诊断评分、关键 trade-off 与下一步行动。
+一份公开、持续演化的个人工程参考，记录我在与 AI Agent 协作开发软件项目时通常采用的工程偏好、决策规则与项目约定。
 
 [English](README.md)
 
-> **当前状态：v0.4 — 公开预览。** Review Protocol 与底层方法论现已面向真实项目开放使用、反馈与验证。本项目是一套具有明确工程取向的开放 Review 系统，而不是行业标准、认证体系或合规框架。
+> **这是个人参考，不是通用标准。内容表达默认偏好，而不是强制规则。具体项目的本地上下文始终优先。**
 
-## 用一句话审查你的项目
+## 为什么存在这个仓库
 
-只要 AI Agent 能够访问本仓库与目标项目，就可以直接发送：
+我长期使用 ChatGPT、Claude Code、Codex 等 Coding Agent 参与软件项目开发。不同项目中会反复出现相似的工程问题：需要多强的验证、什么时候值得加入 CI、什么时候应该引入依赖、什么时候发布 Release、有何操作必须获得明确批准，以及 Agent 在开始工作前应该掌握多少项目上下文。
 
-> **请使用 `https://github.com/Charlie-Wang-03/agentic-engineering-review` 中的 Agentic Engineering Review 审查 `<TARGET_PROJECT>`。先读取并遵循 `AGENT_REVIEW_PROTOCOL.md`；检查实际项目证据，判断哪些审查维度真正适用，给出结构化 Diagnostic Score 与有证据支持的发现；除非我明确要求，否则不要修改目标项目。**
+这个仓库用于降低这些重复决策和重复沟通的成本。它记录我通常采用的默认倾向，让具备能力的 Agent 可以把它作为二级上下文，而不必在每次对话中重新推断我的工程偏好。
 
-`<TARGET_PROJECT>` 可以是：
+## 这是什么
 
-- Agent 当前打开的本地 workspace；
-- 本地项目目录；
-- GitHub 或其他远程仓库；
-- Agent 确实有权读取的私有或内部项目；
-- 拥有足够可访问证据的非 Git 项目。
+仓库主要包含：
 
-canonical、工具无关的执行协议是 [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md)。审查默认 **只读**。
+- **[工程偏好](docs/preferences.md)** — 相对稳定的工程倾向；
+- **[决策规则](docs/decision-rules.md)** — 面对反复出现的工程选择时，我通常如何判断；
+- **[项目约定](docs/project-conventions.md)** — 决定采用某种做法后，我通常如何组织和维护项目；
+- **[AGENTS.md 模板](templates/AGENTS.md.template)** — 为具体项目编写 Agent 本地指令的轻量起点。
 
-## 你会得到什么
+这个仓库有意保持鲜明的个人工程取向，因为它描述的是我的工作偏好，而不是行业共识。
 
-一次正常 Review 会给出：
+## 这不是什么
 
-- 在证据覆盖充分时给出的、适用性自适应的 **0–100 Diagnostic Score**；
-- 显式的 **Evidence Coverage**，让缺失证据被看见，而不是被 Agent 猜测填补；
-- 当前最值得修复的高价值工程缺口；
-- 应当保留的合理 trade-off；
-- 需要更多证据才能判断的问题；
-- 修复成本暂时高于收益、因此主动 defer 的问题；
-- 3–5 个有优先级的下一步行动。
+它不是行业标准、通用软件工程方法论、合规或认证框架、项目评分系统、强制项目模板，也不是对具体项目目标和约束进行实际理解的替代品。
 
-分数只是诊断摘要，不是认证，也不用于机械比较不同类型的项目。
+## Agent 应如何使用
 
-## 它如何工作
+当 Agent 参与我的项目时，应：
 
-```text
-Target Project
-    ↓
-你的 AI Agent
-    ↓
-Agent Review Protocol
-    ↓
-Evidence → Applicability → Engineering Judgment → Trade-offs
-    ↓
-Structured Review
-```
+1. 先检查项目真实状态；
+2. 优先读取目标仓库自己的本地指令；
+3. 理解项目目标、约束、用户与成熟度；
+4. 仅把本仓库作为可复用的二级偏好上下文；
+5. 只应用对当前项目确实有意义的偏好；
+6. 当本仓库与项目本地证据或指令冲突时，以后者为准；
+7. 未经明确授权，不执行破坏性或高影响操作。
 
-Protocol 要求 Agent：
+目标是减少重复解释，而不是用规则替代工程判断。
 
-1. 先确认自己真正能够读取哪些项目状态与证据；
-2. 在评价之前理解项目目的、用户、约束与成熟度；
-3. 检查真实实现证据，而不是只相信项目宣传或 README 声明；
-4. 每个审查维度先判断 `Material`、`Relevant` 或 `N/A`，之后才能评分；
-5. 证据不足时使用 `NE — Not Enough Evidence`，而不是猜分；
-6. 区分真正工程缺口与合理的非默认 trade-off；
-7. 除非用户另行授权，否则始终保持只读。
+## 当前核心倾向
 
-## 面向高度使用 Agent 的真实项目开发
+当前重点包括：
 
-Agentic Engineering Review 尤其适合：
+- 项目结果优先于跨项目惯例；
+- 可验证结果优先于“看起来正确”；
+- 可审查、可回退的修改优先于不必要的大 blast radius；
+- 明确项目上下文优先于隐式本地知识；
+- 每个依赖都应证明其维护成本合理；
+- 隐私、权限与公开/私有边界应被有意识地管理；
+- 仅在确有价值时追求 portability 或 local execution。
 
-- **AI-native builders** — 大量依赖 Coding Agent 的独立开发者与工程师；
-- **technical product builders** — 直接参与原型、项目仓库和 Agent 工作流的 AI 产品经理、原型开发者与独立 AI 开发者；
-- **FDE / solution engineers** — 经常面对客户环境、部署约束、provider、权限、数据边界与快速变化需求的工程人员；
-- 希望提高 Human-Agent Collaboration 工程质量、但不希望引入重型合规流程的维护者。
-
-目标项目不要求开源。与项目真实目标无关的审查维度直接标记为 `N/A`，而不是扣分。
-
-## 为什么它不同
-
-### Evidence before judgment
-
-Agent 应优先检查实现、配置、tests、CI、依赖、历史、runtime evidence 或其他相关项目材料，再做宽泛判断。
-
-### Applicability before scoring
-
-系统不会强迫所有项目接受同一套 checklist。一个明确保持私有的内部项目，可以合理地把开放协作维度标记为 `N/A`；一个纯静态文档项目，也可能不存在有意义的 local / remote runtime boundary。
-
-### Trade-offs, not compliance
-
-偏离默认原则不自动等于缺陷。对于重要非默认选择，使用：
-
-`Default → Conflict → Trade-off → Exception → Evidence → Revisit`
-
-只要真实约束与证据支持，专有 solver、云平台或特定 provider 都可能是正确工程选择。
-
-### Agent-executable, human-accountable
-
-Protocol 被设计为可由具备读取能力的 AI Agent 直接执行，但工程责任仍然由人承担。Agent 提供结构化判断支持，而不是替代最终工程决策。
-
-## 诊断评分
-
-每个可能适用的维度首先获得 applicability 状态：
-
-| Applicability | 含义 | 权重 |
-| --- | --- | ---: |
-| `Material` | 实质影响项目结果或风险 | 2 |
-| `Relevant` | 值得审查，但属于次要因素 | 1 |
-| `N/A` | 对项目没有实质意义 | 不计入 |
-
-证据充分的适用维度按 `0–4` 分评分，并标记 `High`、`Medium` 或 `Low` 证据置信度。适用但证据不足的维度标记为 `NE`，不得猜测数字分数。
-
-只有加权 **Evidence Coverage ≥ 70%** 时，才给出 `/100` 的总体 Diagnostic Score。完整规则见 [Agent Review Protocol](AGENT_REVIEW_PROTOCOL.md) 和面向人类阅读的 [项目审查模板](templates/PROJECT_REVIEW.zh-CN.md)。
-
-## 由 Agentic Engineering Methodology 驱动
-
-Review 系统背后是一套同时面向人类与 Agent 可读的工程方法论。
-
-最高元原则是 **Outcomes over Dogma**：
-
-> **项目结果优先。原则用于改善工程判断，而不是替代工程判断。**
-
-当前九条核心原则：
-
-1. **Open by Default — 开放优先**
-2. **Agent-Native, Human-Accountable — Agent 原生，人类负责**
-3. **Portable over Model-Agnostic — 追求可移植，而非绝对模型无关**
-4. **User Sovereignty & Privacy by Default — 用户主权与默认隐私保护**
-5. **Local-First When Practical — 合理情况下本地优先**
-6. **Justified Dependencies — 每个依赖都必须证明自己的价值**
-7. **Progressive Usability — 渐进式用户友好**
-8. **Verifiable by Default — 默认可验证**
-9. **Reversible Change — 修改应尽可能可逆**
-
-这些原则有意同时包含长期价值、工程默认偏好、约束、决策准则与优先采用的手段；它们会根据目标项目的真实目的与约束选择性应用。
-
-## 两种使用方式
-
-### 1. 外部 Review — 默认方式
-
-让本仓库保持在目标项目之外，只在真正有价值的节点调用，例如：
-
-- 项目开始进入认真开发阶段；
-- 重大架构或依赖决策；
-- 大规模重构；
-- 准备公开发布；
-- 重要 Release；
-- 事故、失败或明显工程问题之后。
-
-正常外部 Review 不会在目标项目中留下任何方法论专属文件。
-
-### 2. 选择性落地 — 确有价值时
-
-如果 Review 暴露出反复出现的项目特定需求，只把这些需求转化为目标项目自己的工程产物。例如：
-
-- 当 Coding Agent 上下文确实不足时，参考 [`templates/AGENTS.md.template`](templates/AGENTS.md.template)；
-- 某个高影响决策需要长期保留依据时，使用 [Decision Record](templates/DECISION_RECORD.md)；
-- 因为项目本身需要而增加 tests、validation、safeguards 或 documentation，而不是为了提高方法论分数。
-
-不要把整套方法论机械复制进每一个项目。
-
-## 深入了解
-
-| 资源 | 作用 |
-| --- | --- |
-| [`AGENT_REVIEW_PROTOCOL.md`](AGENT_REVIEW_PROTOCOL.md) | canonical Agent 执行协议与输出契约 |
-| [核心原则](docs/principles.zh-CN.md) | 相对稳定的工程默认与价值取向 |
-| [决策框架](docs/decision-framework.zh-CN.md) | trade-off、例外、证据与 revisit 规则 |
-| [实践指南](docs/practices.zh-CN.md) | 变化更快的工程落地实践 |
-| [方法论治理](docs/governance.zh-CN.md) | 方法论和 Review Protocol 如何演化 |
-| [项目审查](templates/PROJECT_REVIEW.zh-CN.md) | 面向人类的审查维度与评分 rubric |
-
-## 边界
-
-Agentic Engineering Review **不是**：
-
-- 安全认证或专业安全审计的替代；
-- 合规框架；
-- 软件质量保证；
-- 用于跨不同项目类型机械排名的通用成熟度 benchmark；
-- 要求所有项目使用相同模型、Agent、平台或技术栈的规范；
-- 因为用户提出“review”就自动获得修改目标项目的权限。
-
-如果 Agent 无法访问重要的方法论内容或目标项目证据，应明确报告限制并降级审查，而不是伪造完整性。
+完整说明见 [工程偏好](docs/preferences.md)。
 
 ## 仓库状态
 
-本仓库本身也是 Review 系统与底层方法论的考察对象。它有意保持 Markdown-first，只使用轻量 Python 标准库 validator，而不建立重型文档工具链。
+这个仓库是一份持续演化的个人参考。只有当某条内容确实能够减少未来的重复工程判断或重复 Agent 沟通时，才值得进入核心。
 
-验证命令：
+在当前定位之前，本仓库承载的是 **Agentic Engineering Review**：一套 evidence-first 项目 Review 系统。旧设计已由历史 [v0.4 Release](https://github.com/Charlie-Wang-03/agentic-engineering-review/releases/tag/v0.4) 保存。当前仓库不再把评分或 Review Protocol 作为主要产品方向。
 
-```bash
-python3 scripts/validate_repo.py
-```
+## 验证
 
-英文是默认操作语言；README 与核心方法论文档提供完整简体中文一等阅读路径。canonical Agent Review Protocol 保持 English-first，而 Review 输出通常应跟随用户语言。
+运行：
 
-仓库现处于 **公开预览**。真实项目反馈与跨 Agent 行为验证将继续推动后续版本演化，在获得足够证据之前不做 `v1.0` 稳定性承诺。
+    python3 scripts/validate_repo.py
 
-## 参与贡献
+## 贡献
 
-参见 [CONTRIBUTING.md](CONTRIBUTING.md)。贡献应优先改善真实工程判断、Review 可靠性或采用体验，而不是为了完整性增加流程。涉及安全敏感问题时，请遵循 [SECURITY.md](SECURITY.md)，不要直接创建公开 Issue。
+参见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## License
 
-本项目采用 [Apache License 2.0](LICENSE)。
+采用 [Apache License 2.0](LICENSE)。

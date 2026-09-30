@@ -2,7 +2,7 @@
 
 ## Project Purpose
 
-Describe what this repository exists to achieve, who it serves, and what outcomes matter most.
+Describe what this repository exists to achieve, who it serves, and which outcomes matter most.
 
 ## Read First
 
@@ -12,45 +12,26 @@ List the smallest set of files an agent should read before substantive work.
 
 Document deterministic commands when available.
 
-```text
-setup: <command or n/a>
-test: <command or n/a>
-lint: <command or n/a>
-validate: <command or n/a>
-```
+    setup: <command or n/a>
+    test: <command or n/a>
+    lint: <command or n/a>
+    validate: <command or n/a>
 
-## Repository Boundaries and Invariants
+## Repository Structure
 
-State important directory responsibilities, architecture boundaries, generated-artifact boundaries, compatibility promises, and files that should not be modified casually.
+Document important directory responsibilities and generated-artifact boundaries.
 
-Prefer concrete statements such as:
+## Project Invariants
 
-- `<directory>` owns `<responsibility>`;
-- `<interface>` must remain backward compatible;
-- generated files under `<path>` must not be edited manually;
-- private data must never enter `<public path>`.
-
-## Material Engineering Defaults
-
-Include only methodology defaults that materially affect this project. Do **not** copy all principles automatically.
-
-Examples:
-
-- **Privacy:** user data stays local unless explicitly configured otherwise.
-- **Dependencies:** new runtime dependencies require a clear maintenance benefit.
-- **Verification:** every behavior change must have a reproducible validation path.
-- **Reversibility:** destructive migrations require backup or rollback instructions.
-- **Portability:** provider-specific code stays behind the existing adapter boundary.
-
-If a methodology principle has no meaningful consequence for this repository, omit it here.
+State constraints that should remain true across changes, such as compatibility promises, schema guarantees, data boundaries, reproducibility requirements, or supported platforms.
 
 ## Project-Specific Constraints
 
-Document constraints specific to this repository, such as supported platforms, data boundaries, performance requirements, external services, regulatory constraints, or release rules.
+Document constraints specific to this repository, such as external services, resource limits, privacy boundaries, performance requirements, release rules, or environment assumptions.
 
 ## High-Risk Operations
 
-List operations that require extra review, explicit approval, backup, dry-run, or rollback planning.
+List operations that require explicit approval, extra review, backup, dry-run, or rollback planning.
 
 ## Definition of Done
 
@@ -60,18 +41,14 @@ Before declaring work complete, an agent should normally:
 2. run relevant validation;
 3. check documentation impact;
 4. verify that no private data or secrets were introduced;
-5. summarize important trade-offs or deliberate deviations.
+5. summarize important trade-offs or remaining limitations.
 
 ## Scoped Instructions
 
-For a small repository, one root `AGENTS.md` is usually enough.
+For a small repository, one root AGENTS.md is usually enough.
 
-Add nested or subsystem-specific instructions only when that scope has materially different commands, invariants, or risks. Keep local rules close to the scope they govern without duplicating repository-wide guidance.
+Add nested or subsystem-specific instructions only when that scope has materially different commands, invariants, or risks.
 
-## Exception Rule
+## External References
 
-When a methodology default conflicts with a better project outcome, use:
-
-`Default → Conflict → Trade-off → Exception → Evidence → Revisit`
-
-Deviation is allowed; unexplained deviation is not.
+If this project references organization-wide guidance, personal engineering preferences, or other external instruction sources, treat them as secondary to this repository's own goals, evidence, and local instructions.

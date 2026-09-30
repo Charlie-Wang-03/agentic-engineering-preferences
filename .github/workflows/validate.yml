@@ -23,5 +23,5 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Validate methodology repository structure
+      - name: Validate repository structure
         run: python3 scripts/validate_repo.py

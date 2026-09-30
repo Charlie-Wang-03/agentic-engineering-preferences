@@ -37,7 +37,9 @@ Add nested instructions only when a subsystem genuinely has different commands, 
 
 Prefer one document per meaningful responsibility, not one file per concept.
 
-Keep a canonical source for normative information and link to it rather than maintaining duplicated copies. Translate documents when translation materially improves use, not for symmetry.
+Keep a canonical source for facts or normative information rather than maintaining multiple independently editable sources of truth. Derived representations are reasonable when they serve materially different consumers—for example a human README, an LLM-oriented source map, structured metadata, or generated machine-readable exports—provided their provenance is clear and their synchronization cost is justified.
+
+Translate documents when translation materially improves use, not for symmetry.
 
 ## Git and Change Scope
 

@@ -25,6 +25,8 @@ Avoid philosophy-heavy introductions, excessive badges, or long implementation d
 
 Prefer one canonical validation entry point when practical. A capable agent should be able to determine how to check whether a change is acceptable.
 
+When working with external products, APIs, benchmarks, or published claims, keep evidentiary authority explicit: distinguish external or vendor claims from local observations and from conclusions derived by this project. Do not present one category as though it were another.
+
 Use stronger validation for higher-risk work; do not add machinery whose maintenance cost exceeds the risk it controls.
 
 Validation should protect actual project claims and important risks rather than pursue arbitrary completeness. If a project publicly claims support for particular platforms, runtimes, artifact properties, compatibility boundaries, or quality guarantees, its validation surface should cover those claims when practical.

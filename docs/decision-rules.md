@@ -87,3 +87,14 @@ Perform a dedicated audit before:
 - external handoff of a repository or generated bundle.
 
 Check current files, Git history, secrets, private paths, unpublished material, licenses, README claims, generated artifacts, archives, and external links as applicable.
+
+
+## When should externally costly or stateful execution use an explicit budget?
+
+**Default:** Bound the work before starting when execution spends money, consumes a rate limit, mutates external state, or can otherwise expand without a natural stopping point.
+
+Use explicit ceilings such as request counts, retries, runtime, generated items, cloud jobs, or other task-appropriate limits. Prefer fail-closed behavior when the requested operation would exceed the approved budget.
+
+Human approval answers whether an operation is authorized. A budget answers how far that authorization extends; both may be necessary.
+
+Avoid unbounded retry, polling, fan-out, or “keep going until it works” behavior against paid or externally stateful systems.

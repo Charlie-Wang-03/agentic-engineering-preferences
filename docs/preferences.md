@@ -26,6 +26,8 @@ Prefer coherent, reviewable changes with controlled blast radius and a clear rec
 
 Use version control, focused diffs, branches, backups, dry-runs, rollback plans, migration safeguards, or generated-artifact isolation when they materially reduce risk. Do not mechanically optimize for tiny commits; optimize for understandable and recoverable change.
 
+When an artifact needs to remain citable or reproducible, freeze that artifact or release boundary rather than unnecessarily freezing every surrounding document or presentation layer. Preserve the immutable evidence anchor while allowing clearly separated maintenance or presentation surfaces to evolve.
+
 ## 4. Explicit over Hidden Context
 
 Prefer important project knowledge to be discoverable from the repository or its documented interfaces.

@@ -30,6 +30,8 @@ Prefer important project knowledge to be discoverable from the repository or its
 
 Commands, validation paths, repository boundaries, invariants, generated-artifact rules, high-risk operations, and definitions of done should be explicit when they materially affect work. A capable agent should not need repeated conversational reconstruction of stable project facts.
 
+Explicit does not mean eager. Keep stable context discoverable, but load only the smallest task-relevant subset by default and expand into deeper governance, architecture, or historical context when the task actually requires it.
+
 ## 5. Dependencies Must Earn Their Cost
 
 A dependency is justified by the problem it solves, not by dependency count.

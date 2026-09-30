@@ -27,6 +27,8 @@ Prefer one canonical validation entry point when practical. A capable agent shou
 
 Use stronger validation for higher-risk work; do not add machinery whose maintenance cost exceeds the risk it controls.
 
+Automate only properties that are genuinely machine-verifiable. Keep explicit human gates for judgments that remain experiential, aesthetic, ethical, editorial, or otherwise non-deterministic. A green automated check should not be used to imply that a human-only quality judgment has been proven.
+
 ## Agent Context
 
 When AGENTS.md is useful, keep the root file concise and include only stable information such as project purpose, files to read first, commands, repository boundaries, invariants, project-specific constraints, high-risk operations, and definition of done.
@@ -64,6 +66,14 @@ Use least-necessary permissions for agents, automation, and workflows.
 Once a dependency is accepted, keep setup reproducible and document important external requirements.
 
 Pin versions where the maintenance or supply-chain risk justifies it. For GitHub Actions or similarly privileged automation, prefer immutable or otherwise trustworthy references when practical.
+
+## Project Lifecycle
+
+Maintenance obligations should match the project's lifecycle rather than a generic notion of repository completeness.
+
+For an active public product or collaboration surface, CI, dependency maintenance, contribution workflows, deployment checks, or stronger automation may be justified.
+
+For a deliberately frozen or completed experiment, it can be reasonable to preserve a clear local validation path and public source snapshot without adding new CI, deployment, dependency bots, roadmap machinery, or active governance. Do not reactivate a finished project merely to make it resemble an actively maintained repository.
 
 ## GitHub Repository Settings
 

@@ -16,6 +16,8 @@ For agent-generated or large-scale changes, tests, validation commands, runtime 
 
 > Agent-generated work should be verifiable by tools, not trusted by appearance.
 
+Separate execution status from domain acceptance whenever that distinction materially affects correctness. A command, pipeline, training run, build, or API call completing successfully should not automatically imply that the resulting scientific, data-quality, business, or engineering acceptance criteria passed.
+
 Verification effort should remain proportional to the project's risk.
 
 ## 3. Reversible over Unnecessarily Risky

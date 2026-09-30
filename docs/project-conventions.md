@@ -27,6 +27,8 @@ Prefer one canonical validation entry point when practical. A capable agent shou
 
 Use stronger validation for higher-risk work; do not add machinery whose maintenance cost exceeds the risk it controls.
 
+Validation should protect actual project claims and important risks rather than pursue arbitrary completeness. If a project publicly claims support for particular platforms, runtimes, artifact properties, compatibility boundaries, or quality guarantees, its validation surface should cover those claims when practical.
+
 Automate only properties that are genuinely machine-verifiable. Keep explicit human gates for judgments that remain experiential, aesthetic, ethical, editorial, or otherwise non-deterministic. A green automated check should not be used to imply that a human-only quality judgment has been proven.
 
 ## Agent Context
@@ -64,6 +66,8 @@ Use least-necessary permissions for agents, automation, and workflows.
 ## Dependencies and Tooling
 
 Once a dependency is accepted, keep setup reproducible and document important external requirements.
+
+Keep heavyweight, provider-specific, proprietary, or environment-specific integrations optional when the core remains meaningfully useful without them. Avoid forcing all users or contributors to install integrations they do not need.
 
 Pin versions where the maintenance or supply-chain risk justifies it. For GitHub Actions or similarly privileged automation, prefer immutable or otherwise trustworthy references when practical.
 

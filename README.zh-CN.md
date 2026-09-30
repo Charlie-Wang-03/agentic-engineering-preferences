@@ -59,7 +59,7 @@
 
 这个仓库是一份持续演化的个人参考。只有当某条内容确实能够减少未来的重复工程判断或重复 Agent 沟通时，才值得进入核心。
 
-在当前定位之前，本仓库承载的是 **Agentic Engineering Review**：一套 evidence-first 项目 Review 系统。旧设计已由历史 [v0.4 Release](https://github.com/Charlie-Wang-03/agentic-engineering-review/releases/tag/v0.4) 保存。当前仓库不再把评分或 Review Protocol 作为主要产品方向。
+在当前定位之前，本仓库承载的是 **Agentic Engineering Review**：一套 evidence-first 项目 Review 系统。旧设计已由历史 [v0.4 Release](https://github.com/Charlie-Wang-03/agentic-engineering-preferences/releases/tag/v0.4) 保存。当前仓库不再把评分或 Review Protocol 作为主要产品方向。
 
 ## 验证
 

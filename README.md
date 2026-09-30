@@ -59,7 +59,7 @@ See [Preferences](docs/preferences.md) for the current wording.
 
 This repository is an evolving personal reference. Rules should be added only when they reduce recurring engineering decisions or recurring agent communication.
 
-Before this positioning, the repository hosted **Agentic Engineering Review**, an evidence-first project-review system. That design remains preserved in the historical [v0.4 release](https://github.com/Charlie-Wang-03/agentic-engineering-review/releases/tag/v0.4). The current repository no longer maintains the diagnostic scoring or review-protocol product as its primary direction.
+Before this positioning, the repository hosted **Agentic Engineering Review**, an evidence-first project-review system. That design remains preserved in the historical [v0.4 release](https://github.com/Charlie-Wang-03/agentic-engineering-preferences/releases/tag/v0.4). The current repository no longer maintains the diagnostic scoring or review-protocol product as its primary direction.
 
 ## Validation
 

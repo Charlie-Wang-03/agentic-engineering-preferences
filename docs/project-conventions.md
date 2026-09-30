@@ -65,6 +65,19 @@ Once a dependency is accepted, keep setup reproducible and document important ex
 
 Pin versions where the maintenance or supply-chain risk justifies it. For GitHub Actions or similarly privileged automation, prefer immutable or otherwise trustworthy references when practical.
 
+## GitHub Repository Settings
+
+For public GitHub repositories, prefer a small set of settings that reduce maintenance friction without creating unnecessary process:
+
+- keep Issues enabled when the repository accepts bug reports, corrections, or contribution discussion;
+- prefer squash merging as the default PR integration strategy;
+- disable merge commits and rebase merging unless a repository has a concrete reason to preserve those histories;
+- automatically delete head branches after merge;
+- keep Wiki disabled unless it has a real documentation role that should not live in the repository;
+- treat Projects, Discussions, auto-merge, update-branch behavior, and squash-message formatting as project-local choices rather than universal defaults.
+
+Repository rulesets, branch protection, permissions, environments, Pages, secrets, and other higher-impact settings should be configured to match the project's actual collaboration and release model rather than copied mechanically from another repository.
+
 ## Releases and Artifacts
 
 Keep source, generated artifacts, validation outputs, and delivery packages distinguishable.

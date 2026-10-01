@@ -46,6 +46,8 @@ Consider capability, implementation cost, maturity, maintenance activity, instal
 
 Treat secrets, credentials, private paths, unpublished data, public/private repository boundaries, external uploads, and agent permissions as explicit engineering concerns.
 
+Reason about the actual trust boundary rather than treating “local” as synonymous with private or single-user. Process, OS-user, host, network, account, and workspace boundaries can differ materially; loopback or local execution may still expose data or authority to other users on the same machine.
+
 Use the least access necessary, keep private and public artifacts intentionally separated, and inspect repository history before making previously private material public when that history may contain sensitive information.
 
 ## 7. Portability and Locality Are Means, Not Goals

@@ -18,6 +18,8 @@ For agent-generated or large-scale changes, tests, validation commands, runtime 
 
 Separate execution status from domain acceptance whenever that distinction materially affects correctness. A command, pipeline, training run, build, or API call completing successfully should not automatically imply that the resulting scientific, data-quality, business, or engineering acceptance criteria passed.
 
+Preserve meaningful unknown states. Unavailable, unobserved, indeterminate, or not-yet-verified evidence should not be collapsed into absence, failure, incompatibility, or zero unless the system can actually establish that conclusion.
+
 Verification effort should remain proportional to the project's risk.
 
 ## 3. Reversible over Unnecessarily Risky
@@ -49,6 +51,8 @@ Treat secrets, credentials, private paths, unpublished data, public/private repo
 Reason about the actual trust boundary rather than treating “local” as synonymous with private or single-user. Process, OS-user, host, network, account, and workspace boundaries can differ materially; loopback or local execution may still expose data or authority to other users on the same machine.
 
 Use the least access necessary, keep private and public artifacts intentionally separated, and inspect repository history before making previously private material public when that history may contain sensitive information.
+
+A canonical internal representation does not require every consumer to receive the same disclosure surface. When trust, purpose, or data sensitivity differs, expose only the subset appropriate to that consumer while keeping the projection's provenance and omissions explicit.
 
 ## 7. Portability and Locality Are Means, Not Goals
 

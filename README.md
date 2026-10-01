@@ -19,6 +19,7 @@ This repository contains:
 - **[Preferences](docs/preferences.md)** — relatively stable engineering tendencies;
 - **[Decision Rules](docs/decision-rules.md)** — how I usually handle recurring engineering choices;
 - **[Project Conventions](docs/project-conventions.md)** — how I usually structure and maintain projects once a choice has been made;
+- **[Used in Practice](docs/used-in-practice.md)** — selected public examples showing where these preferences and decision rules are already adopted, without claiming that they caused better outcomes;
 - **[AGENTS.md template](templates/AGENTS.md.template)** — a lightweight starting point for project-local agent instructions.
 
 The repository is intentionally opinionated because it documents my working preferences. It is not intended to establish industry consensus.

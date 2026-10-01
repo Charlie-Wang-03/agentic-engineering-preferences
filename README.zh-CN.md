@@ -19,6 +19,7 @@
 - **[工程偏好](docs/preferences.md)** — 相对稳定的工程倾向；
 - **[决策规则](docs/decision-rules.md)** — 面对反复出现的工程选择时，我通常如何判断；
 - **[项目约定](docs/project-conventions.md)** — 决定采用某种做法后，我通常如何组织和维护项目；
+- **[真实项目中的采用](docs/used-in-practice.md)** — 选取公开、可核验的实例，展示这些偏好和决策规则已经如何被实际采用，但不据此宣称它们导致了更好的工程结果；
 - **[AGENTS.md 模板](templates/AGENTS.md.template)** — 为具体项目编写 Agent 本地指令的轻量起点。
 
 这个仓库有意保持鲜明的个人工程取向，因为它描述的是我的工作偏好，而不是行业共识。

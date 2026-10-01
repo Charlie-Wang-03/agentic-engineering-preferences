@@ -59,3 +59,5 @@ A canonical internal representation does not require every consumer to receive t
 Prefer replaceable boundaries or local execution when they provide concrete value in privacy, reproducibility, autonomy, maintenance, cost, testing, or future flexibility.
 
 Do not add abstraction merely to claim model/provider agnosticism, and do not force local execution when a remote service is clearly the better engineering choice. Optimize for useful boundaries, not ideological purity.
+
+Distinguish preserved capability from active operational responsibility. A repository may intentionally retain a heavier backend, deployment mode, provider integration, GPU path, or migration fallback without operating or maintaining it as the current default. Existing code alone is not a reason to activate its operational cost.

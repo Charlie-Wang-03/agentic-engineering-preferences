@@ -33,6 +33,8 @@ Use stronger validation for higher-risk work; do not add machinery whose mainten
 
 Validation should protect actual project claims and important risks rather than pursue arbitrary completeness. If a project publicly claims support for particular platforms, runtimes, artifact properties, compatibility boundaries, or quality guarantees, its validation surface should cover those claims when practical.
 
+When behavior depends on fast-moving external tools, APIs, schemas, or documented semantics, record the authority and compatibility identity that the implementation was validated against. Useful identities may include a version, commit, documentation date, API generation, schema revision, or another reviewable reference.
+
 Automate only properties that are genuinely machine-verifiable. Keep explicit human gates for judgments that remain experiential, aesthetic, ethical, editorial, or otherwise non-deterministic. A green automated check should not be used to imply that a human-only quality judgment has been proven.
 
 ## Agent Context

@@ -20,7 +20,8 @@ Before substantive changes, read the smallest relevant set:
 2. docs/preferences.md when changing durable engineering tendencies;
 3. docs/decision-rules.md when changing recurring decision guidance;
 4. docs/project-conventions.md when changing implementation conventions;
-5. CONTRIBUTING.md for contribution boundaries.
+5. docs/used-in-practice.md when changing public adoption examples or their evidentiary boundaries;
+6. CONTRIBUTING.md for contribution boundaries.
 
 Do not load unrelated files merely for completeness.
 
@@ -30,6 +31,7 @@ Do not load unrelated files merely for completeness.
 - docs/preferences.md — relatively stable engineering preferences;
 - docs/decision-rules.md — recurring engineering decisions;
 - docs/project-conventions.md — practical implementation conventions;
+- docs/used-in-practice.md — selective public examples showing adoption of preferences and decision rules without claiming causal outcome improvement;
 - templates/AGENTS.md.template — reusable project-local agent instruction template;
 - AGENTS.md — instructions for modifying this repository.
 

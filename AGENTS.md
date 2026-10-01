@@ -21,7 +21,8 @@ Before substantive changes, read the smallest relevant set:
 3. docs/decision-rules.md when changing recurring decision guidance;
 4. docs/project-conventions.md when changing implementation conventions;
 5. docs/used-in-practice.md when changing public adoption examples or their evidentiary boundaries;
-6. CONTRIBUTING.md for contribution boundaries.
+6. llms.txt when changing machine-facing source routing;
+7. CONTRIBUTING.md for contribution boundaries.
 
 Do not load unrelated files merely for completeness.
 
@@ -32,6 +33,7 @@ Do not load unrelated files merely for completeness.
 - docs/decision-rules.md — recurring engineering decisions;
 - docs/project-conventions.md — practical implementation conventions;
 - docs/used-in-practice.md — selective public examples showing adoption of preferences and decision rules without claiming causal outcome improvement;
+- llms.txt — concise machine-facing source map pointing to canonical public documents without duplicating their normative content;
 - templates/AGENTS.md.template — reusable project-local agent instruction template;
 - AGENTS.md — instructions for modifying this repository.
 

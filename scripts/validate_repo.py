@@ -21,6 +21,7 @@ REQUIRED_FILES = [
     "docs/preferences.md",
     "docs/decision-rules.md",
     "docs/project-conventions.md",
+    "docs/used-in-practice.md",
     "templates/AGENTS.md.template",
 ]
 

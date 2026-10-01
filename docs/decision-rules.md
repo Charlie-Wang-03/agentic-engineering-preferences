@@ -98,3 +98,12 @@ Use explicit ceilings such as request counts, retries, runtime, generated items,
 Human approval answers whether an operation is authorized. A budget answers how far that authorization extends; both may be necessary.
 
 Avoid unbounded retry, polling, fan-out, or “keep going until it works” behavior against paid or externally stateful systems.
+
+
+## When should a behavioral threshold or admission policy be changed?
+
+**Default:** Prefer representative examples and calibration evidence before changing a threshold or policy that materially controls classification, ranking, filtering, admission, or triage.
+
+Use labeled examples, gold sets, error analysis, holdouts, or another task-appropriate evaluation surface to determine whether the problem is the underlying policy, the model/rule behavior, or merely the threshold.
+
+Change thresholds directly when the evidence shows a global calibration problem. Do not use intuition-only tuning to compensate for category-specific mistakes that should instead be fixed in the policy, examples, features, or decision logic.

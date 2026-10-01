@@ -31,6 +31,8 @@ Label mocked, simulated, and real-environment validation distinctly when the env
 
 Use stronger validation for higher-risk work; do not add machinery whose maintenance cost exceeds the risk it controls.
 
+Validation may narrow when the changed surface can be classified reliably. A docs-only, content-only, isolated-package, frontend-only, or similarly bounded change may use a smaller gate if that gate still protects every claim and invariant the change can affect; broaden back to the full validation surface whenever the classification is uncertain or the diff crosses subsystem boundaries.
+
 Validation should protect actual project claims and important risks rather than pursue arbitrary completeness. If a project publicly claims support for particular platforms, runtimes, artifact properties, compatibility boundaries, or quality guarantees, its validation surface should cover those claims when practical.
 
 When behavior depends on fast-moving external tools, APIs, schemas, or documented semantics, record the authority and compatibility identity that the implementation was validated against. Useful identities may include a version, commit, documentation date, API generation, schema revision, or another reviewable reference.

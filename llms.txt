@@ -1,0 +1,28 @@
+# Agentic Engineering Preferences
+
+> Personal engineering preferences, decision rules, project conventions, and public adoption examples for AI-assisted software development. These are defaults for the maintainer, not universal standards; project-local context takes precedence.
+
+## Core
+
+- [README](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/README.md): Project identity, scope, use model, and current positioning.
+- [Engineering Preferences](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/docs/preferences.md): Relatively stable engineering tendencies.
+- [Decision Rules](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/docs/decision-rules.md): Defaults for recurring engineering decisions.
+- [Project Conventions](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/docs/project-conventions.md): Practical implementation conventions after a decision has been made.
+
+## Practice Evidence
+
+- [Used in Practice](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/docs/used-in-practice.md): Selected publicly inspectable examples showing adoption of preferences and decision rules; adoption is not presented as causal proof of better outcomes.
+
+## Agent Instructions
+
+- [Repository AGENTS.md](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/AGENTS.md): Repository-local instructions for agents modifying this project.
+- [AGENTS.md Template](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/templates/AGENTS.md.template): Lightweight starting point for project-local agent instructions.
+
+## Other Public Entry Points
+
+- [Simplified Chinese README](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/README.zh-CN.md): Natural Simplified Chinese companion to the public README.
+- [Contributing](https://raw.githubusercontent.com/Charlie-Wang-03/agentic-engineering-preferences/main/CONTRIBUTING.md): Contribution boundaries and expectations.
+
+## Source Guidance
+
+Use the repository-local instructions and the target project's own evidence before applying these preferences elsewhere. Prefer the canonical documents above over summaries or historical material. The historical Agentic Engineering Review product is preserved in release v0.4 and is not the current normative surface.

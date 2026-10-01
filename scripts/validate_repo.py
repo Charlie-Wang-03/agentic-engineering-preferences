@@ -18,6 +18,7 @@ REQUIRED_FILES = [
     "CODE_OF_CONDUCT.md",
     "SECURITY.md",
     "AGENTS.md",
+    "llms.txt",
     "docs/preferences.md",
     "docs/decision-rules.md",
     "docs/project-conventions.md",

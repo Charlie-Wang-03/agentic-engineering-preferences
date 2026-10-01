@@ -27,6 +27,8 @@ Prefer one canonical validation entry point when practical. A capable agent shou
 
 When working with external products, APIs, benchmarks, or published claims, keep evidentiary authority explicit: distinguish external or vendor claims from local observations and from conclusions derived by this project. Do not present one category as though it were another.
 
+Label mocked, simulated, and real-environment validation distinctly when the environment materially affects correctness. A simulated cluster, hardware device, browser condition, network, or external service can validate important behavior without becoming evidence that the same behavior was verified in the real operational environment.
+
 Use stronger validation for higher-risk work; do not add machinery whose maintenance cost exceeds the risk it controls.
 
 Validation should protect actual project claims and important risks rather than pursue arbitrary completeness. If a project publicly claims support for particular platforms, runtimes, artifact properties, compatibility boundaries, or quality guarantees, its validation surface should cover those claims when practical.
@@ -36,6 +38,8 @@ Automate only properties that are genuinely machine-verifiable. Keep explicit hu
 ## Agent Context
 
 When AGENTS.md is useful, keep the root file concise and include only stable information such as project purpose, files to read first, commands, repository boundaries, invariants, project-specific constraints, high-risk operations, and definition of done.
+
+If a tool can mutate real user or external state, state that authority explicitly even when most of the product is observational. Names such as dashboard, monitor, viewer, or assistant should not obscure capabilities such as submit, cancel, send, edit, upload, delete, or write.
 
 Add nested instructions only when a subsystem genuinely has different commands, invariants, or risks.
 
